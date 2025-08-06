@@ -1,0 +1,37 @@
+/* Base button styles */
+.button {
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+/* Get Started - Solid Button */
+.primary {
+  background-color: #21ABB5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+/* Sign In - Text Button */
+.secondary {
+  background: transparent;
+  color: #21ABB5;
+  border: none;
+  padding: 10px 0;
+  margin-right: 15px; /* Space between Sign In and Get Started */
+}
+
+/* Hover effects */
+.primary:hover {
+  background-color: #0a484d;
+  transform: translateY(-1px);
+}
+
+.secondary:hover {
+  color: #21ABB5;
+  text-decoration: underline;
+}
