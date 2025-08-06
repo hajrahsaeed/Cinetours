@@ -24,7 +24,7 @@ const Header = () => {
 
         {/* Logo next to hamburger */}
         <a className="navbar-brand fs-4 fw-bold text-primary m-0" href="/">
-          Cinetour1
+          Cinetour
         </a>
 
         {/* Nav links (collapsible only) */}
