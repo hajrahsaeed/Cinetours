@@ -1,0 +1,197 @@
+/* Section Styling */
+.pricingSection {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 4px;
+  background: hsl(var(--primary));
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  color: #6c757d;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Desktop Table */
+.pricingTable {
+  display: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 992px) {
+  .pricingTable {
+    display: block;
+  }
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: hsl(var(--primary));
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+.headerCell {
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: white;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tableRow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.popularRow {
+  background: #f8f9fa;
+  position: relative;
+  border-left: 3px solid hsl(var(--primary));
+}
+
+.tableCell {
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.priceCell {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: hsl(var(--primary));
+}
+
+.popularBadge {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: hsl(var(--primary));
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.selectButton {
+  background: hsl(var(--primary));
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.selectButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Mobile Cards */
+.mobileCards {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  .mobileCards {
+    display: none;
+  }
+}
+
+.mobileCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  position: relative;
+  border: 1px solid #eee;
+}
+
+.popularCard {
+  border: 2px solid hsl(var(--primary));
+}
+
+.mobilePopularBadge {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: hsl(var(--primary));
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.mobilePackage {
+  font-size: 1.3rem;
+  color: #212529;
+  margin-bottom: 1rem;
+}
+
+.mobileDetail {
+  margin-bottom: 0.8rem;
+  color: #6c757d;
+}
+
+.mobileDetail span {
+  font-weight: 600;
+  color: #212529;
+}
+
+.mobilePrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+  margin: 1rem 0;
+}
+
+.mobileSelectButton {
+  width: 100%;
+  background: hsl(var(--primary));
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobileSelectButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

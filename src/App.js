@@ -3,6 +3,8 @@ import Header from "./Components/Header/header.js"; // Correct
 import Hero from "./Components/Herosection/Hero.js"; // Correct
 import HowItWorks from "./Components/HowItWorks/HowItWorks.js";
 import VideoComparison from "./Components/VideoComparison/VideoComparison.js";
+import Pricing from './Components/Pricing/Pricing.js';
+import Testimonials from './Components/Testimonials/Testimonials.js';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ Join the top real estate media professionals and agents."
       />
 
       <HowItWorks />
+      <Pricing />
+      <Testimonials />
     </div>
   );
 }

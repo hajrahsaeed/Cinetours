@@ -1,0 +1,135 @@
+/* Section Styling */
+.testimonialsSection {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: hsl(var(--primary));
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+}
+
+.titleUnderline {
+  width: 60px;
+  height: 3px;
+  background: hsl(var(--primary));
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.sectionDescription {
+  color: #6c757d;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card Styling */
+.testimonialCol {
+  display: flex;
+  justify-content: center;
+}
+
+.testimonialCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  padding: 2rem;
+  width: 100%;
+  max-width: 350px;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-delay: var(--delay);
+}
+
+.testimonialCard.fromRight {
+  transform: translateX(100%);
+}
+
+.testimonialCard.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cardContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.clientInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.clientImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid hsl(var(--primary));
+}
+
+.clientName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #212529;
+}
+
+.clientRole {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsl(var(--primary)), transparent);
+  margin: 1rem 0;
+}
+
+.testimonialText {
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-top: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .testimonialCard {
+    max-width: 100%;
+    transform: translateY(50px) !important;
+  }
+  
+  .testimonialCard.animate {
+    transform: translateY(0) !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .testimonialCard {
+    padding: 1.5rem;
+  }
+}
