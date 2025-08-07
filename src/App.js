@@ -1,12 +1,10 @@
-import './App.css';
-import Header from './Components/Header/header.js'; // Correct
-import Hero from './Components/Herosection/Hero.js'; // Correct
-import VideoComparison from './Components/VideoComparison/VideoComparison.js';
-
-
+import "./App.css";
+import Header from "./Components/Header/header.js"; // Correct
+import Hero from "./Components/Herosection/Hero.js"; // Correct
+import HowItWorks from "./Components/HowItWorks/HowItWorks.js";
+import VideoComparison from "./Components/VideoComparison/VideoComparison.js";
 
 function App() {
-
   return (
     <div className="App">
       <Header />
@@ -18,26 +16,24 @@ Join the top real estate media professionals and agents."
         {/* You can add buttons or other content here */}
       </Hero>
       <VideoComparison
-        title="See the Transformation"
-        description="Professional real estate videos made seamlessly"
-
-        videos={[
+        title="From Photo to Cinematic Video"
+        description="See how we transform static property photos into engaging videos"
+        comparisons={[
           {
-            before: require("./assets/videos/before2.mp4"),
-            after: require("./assets/videos/before2.mp4")
+            photo: require("./assets/images/before1.png"), // Path to your photo
+            video: require("./assets/videos/before1.mp4"), // Path to your video
           },
           {
-            before: ("./assets/videos/before1.mp4"),
-            after: ("./assets/videos/before1.mp4")
+            photo: require("./assets/images/before2.png"), // Path to your photo
+            video: require("./assets/videos/before2.mp4"), // Path to your video
           }
         ]}
-        slideInterval={500} // Optional: change slide duration
+        slideInterval={6000} // 6 seconds per comparison
       />
 
-
+      <HowItWorks />
     </div>
   );
 }
-
 
 export default App;
