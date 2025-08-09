@@ -1,6 +1,7 @@
 // src/components/Header/Header.js
 import React from 'react';
 import './Header.module.css'; // Assuming you have a CSS file for styling
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -28,33 +29,30 @@ const Header = () => {
         </a>
 
         {/* Nav links (collapsible only) */}
-        <div
-          className="collapse navbar-collapse order-2 order-md-1"
-          id="navbarContent"
-        >
-          <ul className="navbar-nav ms-md-4 gap-md-4">
-            <li className="nav-item">
-              <a className="nav-link fw-medium text-dark" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link fw-medium text-dark" href="/blog">
-                Blog
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link fw-medium text-dark" href="/pricing">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link fw-medium text-dark" href="/contact">
-                Contact Us
-              </a>
-            </li>
-          </ul>
-        </div>
+        <div className="collapse navbar-collapse order-2 order-md-1" id="navbarContent">
+  <ul className="navbar-nav ms-md-4 gap-md-4">
+    <li className="nav-item">
+      <Link className="nav-link fw-medium text-dark" to="/">
+        Home
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link fw-medium text-dark" to="/portal">
+        Client Portal
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link fw-medium text-dark" to="/pricing">
+        Pricing
+      </Link>
+    </li>
+    <li className="nav-item">
+      <Link className="nav-link fw-medium text-dark" to="/admin">
+        Admin Panel
+      </Link>
+    </li>
+  </ul>
+</div>
 
         {/* Always-visible buttons on right */}
         <div className="d-flex gap-2 ms-auto order-1 order-md-2">

@@ -1,0 +1,155 @@
+/* Main Layout */
+.portalContainer {
+  min-height: calc(100vh - 120px);
+  padding: 0;
+}
+
+.portalWrapper {
+  display: flex;
+  min-height: 100%;
+}
+
+.sidebar {
+  width: 280px;
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.contentArea {
+  flex: 1;
+  padding: 2rem;
+  background: #f8f9fa;
+}
+
+/* Navigation */
+.nav-pills .nav-link {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-pills .nav-link.active {
+  background: hsl(var(--primary));
+  color: white;
+}
+
+.nav-pills .nav-link i {
+  font-size: 1.1rem;
+}
+
+/* Cards */
+.portalCard {
+  border: none;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.portalCard .card-header {
+  background: white;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-weight: 600;
+}
+
+/* Package Options */
+.packageOptions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.packageCard {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.packageCard:hover {
+  border-color: hsl(var(--primary));
+}
+
+.packageCard.selected {
+  border-color: hsl(var(--primary));
+  background: rgba(var(--primary-rgb), 0.05);
+}
+
+.price {
+  font-weight: 700;
+  color: hsl(var(--primary));
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .portalWrapper {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+  }
+}
+/* Responsive Tables */
+.responsiveTableContainer {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tableHeader {
+  background-color: #f8f9fa;
+}
+
+/* Responsive table cells */
+@media (max-width: 768px) {
+  table {
+    border: 0;
+    width: 100%;
+  }
+
+  thead {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: none;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    text-align: right;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: auto;
+    padding-right: 1rem;
+    text-align: left;
+  }
+
+  td:last-child {
+    border-bottom: 0;
+  }
+}
