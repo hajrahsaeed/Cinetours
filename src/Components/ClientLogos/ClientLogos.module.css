@@ -1,0 +1,204 @@
+/* Enhanced Client Logos Styles */
+.section {
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, hsl(var(--primary)), #5fadfc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.title:after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, hsl(var(--primary)), #5fadfc);
+  border-radius: 4px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #6c757d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.marqueeContainer {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.marqueeWrapper {
+  padding: 2rem 0;
+  margin: 3rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeWrapper:before,
+.marqueeWrapper:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(33, 171, 181, 0.3), transparent);
+  z-index: 3;
+}
+
+.marqueeWrapper:before {
+  top: 0;
+}
+
+.marqueeWrapper:after {
+  bottom: 0;
+}
+
+.marquee {
+  display: flex;
+  width: fit-content;
+  will-change: transform;
+}
+
+.logoContainer {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 120px;
+  position: relative;
+  margin: 0 10px;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+}
+
+.logoBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logoContainer:hover .logoBackground {
+  opacity: 1;
+}
+
+.logoImage {
+  max-height: 80px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: grayscale(30%) opacity(90%);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.logoContainer:hover .logoImage {
+  filter: grayscale(0%) opacity(100%);
+  transform: scale(1.15);
+}
+
+/* Decorative Elements */
+.section:before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(33, 171, 181, 0.1) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.section:after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(33, 171, 181, 0.05) 0%, transparent 70%);
+  z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.4rem;
+  }
+  
+  .logoContainer {
+    width: 180px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .logoContainer {
+    width: 140px;
+    height: 80px;
+    padding: 1.5rem;
+  }
+  
+  .logoImage {
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .logoContainer {
+    width: 120px;
+    height: 70px;
+    padding: 1rem;
+  }
+}

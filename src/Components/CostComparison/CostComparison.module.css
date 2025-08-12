@@ -1,0 +1,376 @@
+/* CostComparison.module.css */
+
+/* Base Styles */
+.section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Title Styles */
+.titleContainer {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titleIcon {
+  font-size: 2rem;
+  color: hsl(var(--primary));
+}
+
+.mainTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Mobile Cards */
+.mobileCards {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.mobileCategory {
+  font-size: 1.3rem;
+  color: hsl(var(--primary));
+  margin: 2rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobileCard {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.mobileCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.mobileFeature {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobileTooltip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  cursor: help;
+}
+
+.mobileTooltipText {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: #212529;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 200px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.mobileTooltip:hover + .mobileTooltipText {
+  opacity: 1;
+}
+
+.mobileComparison {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.mobileColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileLabel {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0.3rem;
+}
+
+.mobileValueAI {
+  font-weight: 700;
+  color: hsl(var(--primary));
+}
+
+.mobileValueTraditional {
+  color: red;
+  position: relative;
+}
+
+
+
+.mobileAdvantage {
+  font-weight: 600;
+  color: green;
+  font-size: 0.9rem;
+}
+
+/* Desktop Table */
+.desktopTable {
+  display: none;
+}
+
+/* Table Styles */
+.comparisonTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+  min-width: 800px;
+}
+
+/* Header Row */
+.tableHeader {
+  background: linear-gradient(to right, hsl(var(--primary)), #2a9d8f);
+  color: white;
+}
+
+.tableHeader th {
+  padding: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.categoryHeader {
+  width: 15%;
+  text-align: left;
+  padding-left: 2rem !important;
+  border-radius: 12px 0 0 12px;
+}
+
+.featureHeader {
+  width: 25%;
+  text-align: left;
+}
+
+.aiHeader, .traditionalHeader, .advantageHeader {
+  width: 20%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(5px);
+}
+
+.aiHeader .badge {
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.traditionalHeader .badge {
+  background: rgba(0,0,0,0.2);
+}
+
+/* Table Body */
+.tableRow {
+  background: white;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.tableRow:hover {
+  transform: translateY(-3px);
+}
+
+td {
+  padding: 1.2rem;
+  text-align: center;
+  position: relative;
+}
+
+.categoryCell {
+  font-weight: 600;
+  color: #495057;
+  border-right: 1px dashed rgba(0,0,0,0.1);
+}
+
+.categoryWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.icon {
+  font-size: 1.3rem;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(33, 171, 181, 0.1);
+  border-radius: 50%;
+  color: hsl(var(--primary));
+}
+
+.featureCell {
+  font-weight: 500;
+  color: #212529;
+  text-align: left;
+}
+
+.featureWrapper {
+  position: relative;
+  cursor: help;
+}
+
+.featureWrapper:hover:after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #212529;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.aiCell {
+  font-weight: 700;
+  color: hsl(var(-gr-primary));
+  border-left: 1px solid rgba(33, 171, 181, 0.2);
+  border-right: 1px solid rgba(33, 171, 181, 0.2);
+}
+
+.traditionalCell {
+  color: red;
+  font-weight: 500;
+  border-right: 1px solid rgba(108, 117, 125, 0.2);
+}
+
+.value {
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.advantageCell {
+  font-weight: 600;
+  color: red;
+}
+
+.advantagePill {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(33, 171, 181, 0.1);
+  color: green;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+/* Footer */
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.conclusionCard {
+  display: inline-block;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.savingsAmount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+  margin: 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 992px) {
+  .mobileCards {
+    display: none;
+  }
+  
+  .desktopTable {
+    display: block;
+  }
+  
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+  
+  .titleIcon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
