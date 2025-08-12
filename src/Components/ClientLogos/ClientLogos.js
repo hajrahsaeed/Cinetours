@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './ClientLogos.module.css';
 import { motion } from 'framer-motion';
-import amazonLogo from '../../assets/ClientLogos/amazon.png';
-import chatgpt from '../../assets/ClientLogos/chatgpt.png';
+import AT from '../../assets/ClientLogos/AT.png';
 import figma from '../../assets/ClientLogos/figma.png';
-import pepsi from '../../assets/ClientLogos/pepsi.png';
+import HH from '../../assets/ClientLogos/HH.png';
+import IS from '../../assets/ClientLogos/IS.png';
 
 /**
  * Enhanced Animated Client Logos Marquee
@@ -12,10 +12,10 @@ import pepsi from '../../assets/ClientLogos/pepsi.png';
  */
 const ClientLogos = () => {
   const logos = [
-    { src: amazonLogo, alt: 'Amazon', accentColor: '#FF9900' },
-    { src: chatgpt, alt: 'ChatGPT', accentColor: '#10A37F' },
+    { src: AT , alt: 'AT', accentColor: '#10A37F' },
     { src: figma, alt: 'Figma', accentColor: '#A259FF' },
-    { src: pepsi, alt: 'Pepsi', accentColor: '#004B93' },
+    { src: HH, alt: 'HS', accentColor: '#004B93' },
+    { src: IS, alt: 'IS', accentColor: '#004B93' },
   ];
 
   // Double the array for seamless looping
