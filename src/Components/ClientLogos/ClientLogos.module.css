@@ -1,6 +1,6 @@
 /* Enhanced Client Logos Styles */
 .section {
-  padding: 6rem 0;
+  padding: 4rem  0rem 0rem 0rem;
   background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
   position: relative;
   overflow: hidden;
@@ -9,7 +9,6 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
   position: relative;
   z-index: 2;
 }
@@ -89,7 +88,6 @@
 }
 
 .logoContainer {
-  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
