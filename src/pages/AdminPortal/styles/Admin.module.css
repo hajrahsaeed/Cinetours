@@ -1,0 +1,104 @@
+/* Admin Portal Styles */
+.adminContainer {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.sidebar {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.contentArea {
+  padding: 2rem;
+  background: white;
+}
+
+.adminCard {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.adminCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.cardHeader {
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sidebar {
+    min-height: auto;
+  }
+  
+  .contentArea {
+    padding: 1.5rem;
+  }
+}
+
+
+/* Pricing Editor Specific Styles */
+.pricingPreview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.pricingCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pricingCard h6 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #21ABB5;
+  margin: 1rem 0;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Table Edits */
+.table td, .table th {
+  vertical-align: middle;
+}

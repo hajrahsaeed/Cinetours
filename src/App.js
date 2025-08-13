@@ -10,6 +10,7 @@ import CostComparison from './Components/CostComparison/CostComparison.js';
 import Testimonials from './Components/Testimonials/Testimonials.js';
 import Footer from './Components/Footer/Footer.js';
 import ClientPortal from './pages/ClientPortal/ClientPortal.js';
+import AdminPanel from './pages/AdminPortal/AdminPortal';
 
 
 // Create a separate HomePage component for cleaner routing
@@ -59,7 +60,7 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           
           {/* Admin Panel Route */}
-          <Route path="/portal" element={<ClientPortal />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
         
         <Footer />

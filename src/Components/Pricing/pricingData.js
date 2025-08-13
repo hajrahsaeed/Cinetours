@@ -4,31 +4,38 @@
  */
 export const pricingPlans = [
   {
-    package: 'Basic',
+    package: 'Express',
     photocount: '1-10 photos',
     turnaround: '48 hours',
-    price: '$49',
+    price: '$60',
     popular: false
   },
   {
-    package: 'Standard',
+    package: 'Quick',
     photocount: '11-25 photos',
     turnaround: '36 hours',
-    price: '$99',
+    price: '$100',
     popular: true
   },
   {
-    package: 'Premium',
+    package: 'Standered',
     photocount: '26-50 photos',
     turnaround: '24 hours',
-    price: '$149',
+    price: '$130',
     popular: false
   },
   {
-    package: 'Enterprise',
+    package: 'Pro',
     photocount: '50+ photos',
     turnaround: 'Custom',
-    price: 'Contact Us',
+    price: '$200',
+    popular: false
+  },
+  {
+    package: 'Ultra',
+    photocount: '50+ photos',
+    turnaround: 'Custom',
+    price: '$280',
     popular: false
   }
 ];
