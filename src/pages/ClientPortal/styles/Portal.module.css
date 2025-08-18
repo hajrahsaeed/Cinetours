@@ -32,9 +32,9 @@
   gap: 0.75rem;
 }
 
-.nav-pills .nav-link.active {
-  background: hsl(var(--primary));
-  color: white;
+:global(.nav-pills .nav-link.active) {
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  color: #fff;
 }
 
 .nav-pills .nav-link i {
@@ -71,7 +71,7 @@
 }
 
 .packageCard:hover {
-  border-color: hsl(var(--primary));
+  border-color: linear-gradient(135deg, var(--brand1), var(--brand2));
 }
 
 .packageCard.selected {
@@ -81,8 +81,9 @@
 
 .price {
   font-weight: 700;
-  color: hsl(var(--primary));
-  font-size: 1.25rem;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background-clip: text;
+  color: transparent;  font-size: 1.25rem;
   margin-top: 0.5rem;
 }
 
