@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Pricing.module.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import useAdminData from 'D:/reactforme/src/pages/AdminPortal/hooks/useAdminData.js';
+import useAdminData from '../../pages/AdminPortal/hooks/useAdminData';
 
 const Pricing = () => {
   const { getPublicPricing } = useAdminData();
