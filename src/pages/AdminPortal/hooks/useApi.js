@@ -1,4 +1,20 @@
-// src/pages/AdminPortal/hooks/useApi.js
+/**
+ * Central API Service Hook
+ * 
+ * Purpose:
+ * - Provides reusable functions for all API calls
+ * - Handles authentication headers automatically
+ * - Manages loading/error states
+ * - Standardizes request/response formats
+ * 
+ * Backend Integration Guide:
+ * 1. Configure baseURL to match your backend endpoint
+ * 2. Implement the endpoints listed in each function's JSDoc
+ * 3. Ensure responses match the expected formats
+ */
+
+
+
 import axios from 'axios';
 import { useState } from 'react';
 

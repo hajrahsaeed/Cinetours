@@ -1,7 +1,8 @@
-/**
- * Pricing data configuration - can be moved to backend later
- * Admin can modify these values without touching component code
- */
+// This file can now be deprecated since we're using useAdminData hook
+// Keeping it for reference during backend integration
+
+// TODO: Backend Integration - Remove this file once backend is implemented
+// Pricing data will come from database via API calls
 export const pricingPlans = [
   {
     package: 'Express',

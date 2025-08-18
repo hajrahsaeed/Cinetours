@@ -1,10 +1,16 @@
 import React from 'react';
 import styles from './ClientLogos.module.css';
 import { motion } from 'framer-motion';
-import AT from '../../assets/ClientLogos/AT.png';
-import figma from '../../assets/ClientLogos/figma.png';
-import HH from '../../assets/ClientLogos/HH.png';
-import IS from '../../assets/ClientLogos/IS.png';
+import bhhs from '../../assets/ClientLogos/bhhs.png';
+import century from '../../assets/ClientLogos/century.png';
+import coldwell from '../../assets/ClientLogos/coldwell.png';
+import compass from '../../assets/ClientLogos/compass.png';
+import exp from '../../assets/ClientLogos/exp.png';
+import pacific from '../../assets/ClientLogos/pacific.png';
+import reimax from '../../assets/ClientLogos/reimax.png';
+import towne from '../../assets/ClientLogos/towne.png';
+import whissel from '../../assets/ClientLogos/whissel.png';
+import willis from '../../assets/ClientLogos/willis.png';
 
 /**
  * Enhanced Animated Client Logos Marquee
@@ -12,10 +18,16 @@ import IS from '../../assets/ClientLogos/IS.png';
  */
 const ClientLogos = () => {
   const logos = [
-    { src: AT , alt: 'AT', accentColor: '#10A37F' },
-    { src: figma, alt: 'Figma', accentColor: '#A259FF' },
-    { src: HH, alt: 'HS', accentColor: '#004B93' },
-    { src: IS, alt: 'IS', accentColor: '#004B93' },
+    { src: bhhs , alt: 'AT', accentColor: '#004B93' },
+    { src: century, alt: 'Figma', accentColor: '#004B93' },
+    { src: coldwell, alt: 'HS', accentColor: '#004B93' },
+    { src: compass, alt: 'IS', accentColor: '#004B93' },
+    { src: exp, alt: 'IS', accentColor: '#004B93' },
+    { src: pacific, alt: 'IS', accentColor: '#004B93' },
+    { src: reimax, alt: 'IS', accentColor: '#004B93' },
+    { src: towne, alt: 'IS', accentColor: '#004B93' },
+    { src: whissel, alt: 'IS', accentColor: '#004B93' },
+    { src: willis, alt: 'IS', accentColor: '#004B93' },
   ];
 
   // Double the array for seamless looping

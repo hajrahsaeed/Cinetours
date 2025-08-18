@@ -1,29 +1,66 @@
 import React, { useState } from 'react';
 import { Form, Button, Card, Spinner } from 'react-bootstrap';
 import styles from '../styles/Portal.module.css';
+import  {useOrders }  from 'D:/reactforme/src/pages/hooks/useOrders.js';
 
 /**
- * Order upload component with photo selection and package options
+ * Order upload component - Client Portal
  * @component
  * @param {Array} packages - Available pricing packages
- * @param {function} onSubmit - Submission handler
- * @param {boolean} isLoading - Loading state
+ * @param {boolean} isLoading - Loading state (will be used with backend)
  */
-const UploadOrder = ({ packages, onSubmit, isLoading }) => {
+const UploadOrder = ({ packages, isLoading: propLoading }) => {
+  const { addOrder } = useOrders();
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [selectedPackage, setSelectedPackage] = useState('');
   const [addons, setAddons] = useState({
     voiceover: false,
     droneFootage: false
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit({
-      files: selectedFiles,
-      package: selectedPackage,
-      addons
-    });
+    setIsSubmitting(true);
+
+    try {
+      const selectedPkg = packages.find(p => p.id === selectedPackage);
+      if (!selectedPkg) throw new Error('Please select a package');
+
+      const newOrder = {
+        package: selectedPkg.name,
+        photos: selectedFiles.length,
+        addons,
+        // These will come from backend/auth:
+        // clientId: 'current_client_id',
+        // paymentMethod: 'stripe'
+      };
+
+      /**
+       * TEMPORARY: Using local state
+       * REPLACE WITH API CALL WHEN BACKEND IS READY:
+       * try {
+       *   const response = await axios.post('/api/orders', newOrder);
+       *   // Handle response
+       * } catch (error) {
+       *   console.error('Order submission failed:', error);
+       *   // Show error to user
+       * }
+       */
+      addOrder(newOrder);
+
+      // Reset form
+      setSelectedFiles([]);
+      setSelectedPackage('');
+      setAddons({ voiceover: false, droneFootage: false });
+      
+      alert('Order submitted successfully!');
+    } catch (error) {
+      console.error('Order submission error:', error);
+      alert(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -39,10 +76,16 @@ const UploadOrder = ({ packages, onSubmit, isLoading }) => {
               multiple 
               onChange={(e) => setSelectedFiles([...e.target.files])}
               accept="image/*"
+              required
             />
             <Form.Text>
               Upload 5-30 high quality photos of your property
             </Form.Text>
+            {selectedFiles.length > 0 && (
+              <div className="mt-2">
+                <small>{selectedFiles.length} files selected</small>
+              </div>
+            )}
           </Form.Group>
 
           {/* Package Selection */}
@@ -86,11 +129,13 @@ const UploadOrder = ({ packages, onSubmit, isLoading }) => {
           <Button 
             variant="primary" 
             type="submit"
-            disabled={!selectedFiles.length || !selectedPackage || isLoading}
+            disabled={!selectedFiles.length || !selectedPackage || isSubmitting || propLoading}
+            className="w-100"
           >
-            {isLoading ? (
+            {isSubmitting || propLoading ? (
               <>
-                <Spinner animation="border" size="sm" /> Processing...
+                <Spinner animation="border" size="sm" className="me-2" />
+                Processing...
               </>
             ) : 'Submit Order'}
           </Button>
@@ -98,6 +143,16 @@ const UploadOrder = ({ packages, onSubmit, isLoading }) => {
       </Card.Body>
     </Card>
   );
+};
+
+// Default props for local development
+UploadOrder.defaultProps = {
+  packages: [
+    { id: 1, name: 'Starter', photos: '5-10', price: 49 },
+    { id: 2, name: 'Professional', photos: '11-20', price: 99 },
+    { id: 3, name: 'Premium', photos: '21-30', price: 149 }
+  ],
+  isLoading: false
 };
 
 export default UploadOrder;

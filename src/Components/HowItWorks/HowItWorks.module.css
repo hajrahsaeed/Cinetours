@@ -1,26 +1,61 @@
-/* Section Styling */
 .section {
-  padding: 2rem 0;
-  background-color: #f8f9fa;
   position: relative;
+  padding: 4rem 0 0 0;
+  overflow: hidden;
 }
 
+/* Rich Gradient Background */
+.gradientBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Colorful Wave */
+.waveWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.wave {
+  display: block;
+  position: relative;
+  bottom: -1px;
+  width: 100%;
+  height: auto;
+}
+
+/* Title Styling */
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #212529;
+  color: white;
   margin-bottom: 1rem;
+  position: relative;
 }
 
 .titleUnderline {
   width: 80px;
   height: 4px;
-  background: hsl(var(--primary));
+  background: white;
   margin: 0 auto 3rem;
   border-radius: 2px;
 }
 
-/* Step Card Styling */
+/* Step Cards */
 .stepCol {
   position: relative;
 }
@@ -33,19 +68,20 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   text-align: center;
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   border: 1px solid rgba(0,0,0,0.05);
+  cursor: pointer;
 }
 
 .stepCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .stepNumber {
-  width: 60px;
-  height: 60px;
-  background: hsl(var(--primary));
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   color: white;
   font-size: 1.8rem;
   font-weight: 700;
@@ -54,8 +90,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
-  position: relative;
-  z-index: 1;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .stepTitle {
@@ -69,15 +104,10 @@
   color: #000000;
   font-size: 1rem;
   line-height: 1.6;
-  
 }
-
-
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
-  
-  
   .stepCard {
     margin-bottom: 2rem;
   }
@@ -87,73 +117,14 @@
   .sectionTitle {
     font-size: 2rem;
   }
-  
+
   .stepTitle {
     font-size: 1.2rem;
   }
-  
+
   .stepNumber {
     width: 50px;
     height: 50px;
     font-size: 1.5rem;
   }
 }
-/* Animation Styles */
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #212529;
-  margin-bottom: 1rem;
-  opacity: 1; /* Initial state for animation */
-  transform: translateY(0);
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.titleUnderline {
-  width: 80px;
-  height: 4px;
-  background: hsl(var(--primary));
-  margin: 0 auto 3rem;
-  border-radius: 2px;
-  transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Optional: Add a pulse animation for attention */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.animated-title {
-  animation: pulse 5s infinite 5s;
-}
-
-/* Animation Styles */
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #212529;
-  margin-bottom: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-out;
-}
-
-.titleUnderline {
-  width: 0;
-  height: 4px;
-  background: hsl(var(--primary));
-  margin: 0 auto 3rem;
-  border-radius: 2px;
-  transition: width 0.8s ease-out 0.3s;
-}
-
-.stepCard {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-  /* Other existing card styles */
-}
-
-/* Existing styles remain the same */

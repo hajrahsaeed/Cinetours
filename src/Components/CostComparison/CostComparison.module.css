@@ -87,7 +87,8 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+
   color: white;
   display: flex;
   align-items: center;
@@ -166,7 +167,8 @@
 
 /* Header Row */
 .tableHeader {
-  background: linear-gradient(to right, hsl(var(--primary)), #2a9d8f);
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+
   color: white;
 }
 

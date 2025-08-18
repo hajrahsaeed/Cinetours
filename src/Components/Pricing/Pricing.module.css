@@ -14,13 +14,13 @@
 .titleUnderline {
   width: 80px;
   height: 4px;
-  background: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   margin: 0 auto 1rem;
   border-radius: 2px;
 }
 
 .sectionSubtitle {
-  color: #6c757d;
+  color: #000000;
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -44,7 +44,7 @@
 .tableHeader {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   color: white;
   font-weight: 600;
   text-align: center;
@@ -86,14 +86,17 @@
 .priceCell {
   font-weight: 700;
   font-size: 1.2rem;
-  color: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+
+  background-clip: text;
+  color: transparent;
 }
 
 .popularBadge {
   position: absolute;
   top: -10px;
   right: 10px;
-  background: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   color: white;
   font-size: 0.7rem;
   padding: 0.2rem 0.8rem;
@@ -102,7 +105,7 @@
 }
 
 .selectButton {
-  background: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   color: white;
   border: none;
   padding: 0.5rem 1.5rem;
@@ -141,14 +144,14 @@
 }
 
 .popularCard {
-  border: 2px solid hsl(var(--primary));
+  border: 2px solid linear-gradient(135deg, var(--brand1), var(--brand2));
 }
 
 .mobilePopularBadge {
   position: absolute;
   top: -10px;
   right: 10px;
-  background: hsl(var(--primary));
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   color: white;
   font-size: 0.7rem;
   padding: 0.2rem 0.8rem;
@@ -175,8 +178,11 @@
 .mobilePrice {
   font-size: 1.5rem;
   font-weight: 700;
-  color: hsl(var(--primary));
   margin: 1rem 0;
+ background: linear-gradient(135deg, var(--brand1), var(--brand2));
+
+  background-clip: text;
+  color: transparent;
 }
 
 .mobileSelectButton {

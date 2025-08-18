@@ -1,13 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Testimonials.module.css';
 
-/**
- * Animated testimonial card component
- * @component
- * @param {Object} props - Component props
- * @param {Object} props.testimonial - Testimonial data
- * @param {number} props.index - Card index for animation delay
- */
 const TestimonialCard = ({ testimonial, index }) => {
   const cardRef = useRef(null);
 
@@ -16,7 +9,8 @@ const TestimonialCard = ({ testimonial, index }) => {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.animate);
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
           }
         });
       },
@@ -37,23 +31,29 @@ const TestimonialCard = ({ testimonial, index }) => {
   return (
     <div 
       ref={cardRef}
-      className={`${styles.testimonialCard} ${index % 2 === 0 ? styles.fromLeft : styles.fromRight}`}
-      style={{ '--delay': `${index * 0.2}s` }}
+      className={styles.testimonialCard}
+      style={{
+        opacity: 0,
+        transform: 'translateY(50px)',
+        transitionDelay: `${index * 0.15}s`
+      }}
     >
-      <div className={styles.cardContent}>
-        <div className={styles.clientInfo}>
-          <img 
-            src={testimonial.image} 
-            alt={testimonial.name} 
-            className={styles.clientImage}
-          />
-          <div>
-            <h4 className={styles.clientName}>{testimonial.name}</h4>
-            <p className={styles.clientRole}>{testimonial.role}</p>
-          </div>
+      <div className="d-flex align-items-center mb-4">
+        <img 
+          src={testimonial.image} 
+          alt={testimonial.name} 
+          className={styles.clientImage}
+        />
+        <div className="ms-3">
+          <h4 className={styles.clientName}>{testimonial.name}</h4>
+          <p className={styles.clientRole}>{testimonial.role}</p>
         </div>
-        <div className={styles.divider}></div>
-        <p className={styles.testimonialText}>"{testimonial.message}"</p>
+      </div>
+      <p className={styles.testimonialText}>{testimonial.message}</p>
+      <div className="mt-3">
+        {[...Array(testimonial.rating)].map((_, i) => (
+          <span key={i} className="text-warning">★</span>
+        ))}
       </div>
     </div>
   );

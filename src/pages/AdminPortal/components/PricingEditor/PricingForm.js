@@ -21,6 +21,18 @@ const PricingForm = () => {
       return;
     }
     
+    // TODO: Backend Integration - Replace with API call
+    // This currently only updates local state
+    // In future, should make PUT request to save to database
+    // Example:
+    // try {
+    //   await axios.put('/api/pricing', { id, price: Number(tempPrice) });
+    //   updatePricingLocal(id, Number(tempPrice)); // Update local state after successful API call
+    // } catch (err) {
+    //   console.error('Failed to update pricing:', err);
+    //   alert('Failed to save changes');
+    // }
+    
     updatePricingLocal(id, Number(tempPrice));
     setEditingId(null);
     setTempPrice('');

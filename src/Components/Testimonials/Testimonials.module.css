@@ -1,135 +1,478 @@
 /* Section Styling */
 .testimonialsSection {
-  padding: 5rem 0;
-  background-color: #f8f9fa;
+  padding: 6rem 0;
+  position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+
+  background-clip: text;
+  color: transparent;
 }
 
 .tagline {
   font-size: 1.1rem;
-  color: hsl(var(--primary));
-  font-weight: 600;
-  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background-clip: text;
+  color: transparent;  font-weight: 600;
+  letter-spacing: 2px;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 800;
   color: #212529;
   margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background-clip: text;
+  color: transparent;  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
 }
 
 .titleUnderline {
-  width: 60px;
-  height: 3px;
-  background: hsl(var(--primary));
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
   margin: 0 auto 1.5rem;
   border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  animation: scaleIn 0.6s ease-out 0.4s forwards;
 }
 
 .sectionDescription {
   color: #6c757d;
-  font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out 0.5s forwards;
 }
 
 /* Card Styling */
 .testimonialCol {
   display: flex;
   justify-content: center;
+  perspective: 1000px;
 }
 
 .testimonialCard {
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(33, 171, 181, 0.1);
+  padding: 2.5rem;
   width: 100%;
-  max-width: 350px;
+  max-width: 380px;
   opacity: 0;
-  transform: translateX(-100%);
-  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform: translateY(50px) rotateY(15deg);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-delay: var(--delay);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(33, 171, 181, 0.1);
 }
 
-.testimonialCard.fromRight {
-  transform: translateX(100%);
+.testimonialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease-out;
+}
+
+.testimonialCard:hover::before {
+  transform: scaleX(1);
 }
 
 .testimonialCard.animate {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0) rotateY(0);
 }
 
 .cardContent {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .clientInfo {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .clientImage {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid hsl(var(--primary));
+  border: 3px solid white;
+  box-shadow: 0 5px 15px rgba(33, 171, 181, 0.2);
+  transition: all 0.4s ease;
+}
+
+.testimonialCard:hover .clientImage {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(33, 171, 181, 0.3);
 }
 
 .clientName {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
   color: #212529;
+  transition: color 0.3s ease;
+}
+
+.testimonialCard:hover .clientName {
+  color: hsl(var(--primary));
 }
 
 .clientRole {
   color: #6c757d;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin: 0;
+  font-weight: 500;
 }
 
-.divider {
-  height: 1px;
-  background: linear-gradient(to right, transparent, hsl(var(--primary)), transparent);
-  margin: 1rem 0;
+
+.testimonialCard:hover .divider {
+  height: 2px;
+  background: linear-gradient(to right, hsl(var(--primary)), #5fadfc);
+  opacity: 1;
 }
 
 .testimonialText {
   color: #495057;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.8;
   font-style: italic;
   margin-top: auto;
+  position: relative;
+  padding-left: 1.5rem;
 }
+
+.testimonialText::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-size: 3rem;
+  color: rgba(33, 171, 181, 0.1);
+  font-family: serif;
+  line-height: 1;
+}
+
+.testimonialCard:hover .testimonialText {
+  color: #2c3e50;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Floating decoration elements */
+
+
 
 /* Responsive Adjustments */
 @media (max-width: 992px) {
   .testimonialCard {
     max-width: 100%;
     transform: translateY(50px) !important;
+    padding: 2rem;
   }
   
-  .testimonialCard.animate {
-    transform: translateY(0) !important;
+  .sectionTitle {
+    font-size: 2.4rem;
   }
 }
 
 @media (max-width: 576px) {
+  .testimonialsSection {
+    padding: 4rem 0;
+  }
+  
   .sectionTitle {
     font-size: 2rem;
   }
   
   .testimonialCard {
-    padding: 1.5rem;
+    padding: 1.75rem;
   }
+  
+  .clientImage {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+/* Add these new styles to your existing CSS */
+.sectionHeaderContainer {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+  margin-bottom: 2rem;
+}
+
+.sectionHeaderContainer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: rgba(33, 171, 181, 0.08);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left;
+  border-radius: 50px;
+  z-index: -1;
+  animation: headerBgExpand 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.6s forwards;
+}
+
+@keyframes headerBgExpand {
+  0% {
+    transform: translateY(-50%) scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Add this to your existing .sectionTitle */
+.sectionTitle {
+  position: relative;
+  z-index: 1;
+  padding: 0 10px;
+}
+
+/* Add this to your existing .tagline */
+.tagline {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+
+/* Base Section Styling */
+/* Updated Testimonials.module.css */
+.testimonialsSection {
+  position: relative;
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+  overflow: hidden;
+  border-top: 2px solid #0066ff;
+}
+
+/* Animated Wave Background */
+.testimonialsSection::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 200%;
+  height: 250px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%2321ABB5" opacity="0.3"/></svg>');
+  animation: waveMove 25s linear infinite;
+  z-index: 1;
+}
+
+
+
+/* Moving Gradient Overlay */
+.testimonialsSection .gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(33,171,181,0.1) 0%, rgba(255,255,255,0) 50%, rgba(33,171,181,0.1) 100%);
+  background-size: 200% 200%;
+  animation: gradientFlow 15s ease infinite;
+  z-index: 1;
+}
+
+/* Keyframes */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Ensure content stays above background */
+.container,
+.testimonialCard {
+  position: relative;
+  z-index: 2;
+}
+
+/* Bold Header Styles */
+.sectionHeaderContainer {
+  position: relative;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0066ff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(33, 171, 181, 0.15);
+  border-radius: 50px;
+}
+
+
+
+/* Bold Card Styling */
+.testimonialCard {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(33, 171, 181, 0.2);
+  padding: 2.5rem;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.testimonialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #21ABB5, #2a9d8f);
+  transition: all 0.4s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(33, 171, 181, 0.3);
+}
+
+.testimonialCard:hover::before {
+  width: 8px;
+}
+
+.clientImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+}
+
+.testimonialCard:hover .clientImage {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(33, 171, 181, 0.3);
+}
+
+/* Bold Typography */
+.clientName {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.clientRole {
+  color: #0066ff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.testimonialText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #495057;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.testimonialText::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -1rem;
+  font-size: 4rem;
+  color: rgba(33, 171, 181, 0.2);
+  font-family: serif;
+  line-height: 1;
+}
+
+/* Background Elements */
+.backgroundAccent {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  z-index: 0;
+}
+
+.accent1 {
+  top: -100px;
+  right: -100px;
+}
+
+.accent2 {
+  bottom: -150px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
 }

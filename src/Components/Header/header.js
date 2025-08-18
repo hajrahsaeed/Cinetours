@@ -1,7 +1,7 @@
 // src/components/Header/Header.js
-import React from 'react';
-import './Header.module.css'; // Assuming you have a CSS file for styling
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./Header.css"; // Assuming you have a CSS file for styling
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -24,40 +24,43 @@ const Header = () => {
         </button>
 
         {/* Logo next to hamburger */}
-        <a className="navbar-brand fs-4 fw-bold text-primary m-0" href="/">
-          Cinetour
+        <a className="navbar-brand fs-4 fw-bold gradient-text m-13" href="/">
+          QuantumTours
         </a>
 
         {/* Nav links (collapsible only) */}
-        <div className="collapse navbar-collapse order-2 order-md-1" id="navbarContent">
-  <ul className="navbar-nav ms-md-4 gap-md-4">
-    <li className="nav-item">
-      <Link className="nav-link fw-medium text-dark" to="/">
-        Home
-      </Link>
-    </li>
-    <li className="nav-item">
-      <Link className="nav-link fw-medium text-dark" to="/portal">
-        Client Portal
-      </Link>
-    </li>
-    <li className="nav-item">
-      <Link className="nav-link fw-medium text-dark" to="/pricing">
-        Pricing
-      </Link>
-    </li>
-    <li className="nav-item">
-      <Link className="nav-link fw-medium text-dark" to="/admin">
-        Admin Panel
-      </Link>
-    </li>
-  </ul>
-</div>
+        <div
+          className="collapse navbar-collapse order-2 order-md-1"
+          id="navbarContent"
+        >
+          <ul className="navbar-nav ms-md-4 gap-md-4">
+            <li className="nav-item">
+              <Link className="nav-link fw-medium text-dark" to="/">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fw-medium text-dark" to="/portal">
+                Client Portal
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fw-medium text-dark" to="/pricing">
+                Pricing
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link fw-medium text-dark" to="/admin">
+                Admin Panel
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         {/* Always-visible buttons on right */}
         <div className="d-flex gap-2 ms-auto order-1 order-md-2">
           <button className="btn btn-outline-secondary">Sign in</button>
-          <button className="btn btn-primary">Get started</button>
+          <button className="btn gradient-button">Get started</button>
         </div>
       </nav>
     </header>

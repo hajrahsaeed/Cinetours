@@ -1,9 +1,39 @@
-// Updated useAdminData.js
+/**
+ * CUSTOM HOOK: useAdminData
+ * 
+ * Purpose:
+ * - Centralizes pricing state management for both admin and public views
+ * - Provides methods to update pricing data
+ * - Formats data for different views (admin vs public)
+ * 
+ * Backend Integration Points:
+ * 1. Currently uses in-memory state (session-only)
+ * 2. Future implementation should:
+ *    - Fetch initial data from GET /api/pricing
+ *    - Persist changes via PUT /api/pricing
+ *    - Handle loading/error states
+ *    - Implement caching strategy
+ * 
+ * Data Structure:
+ * - Maintains pricing plans with:
+ *   - id: Unique identifier
+ *   - name: Package name
+ *   - photos: Photo count range
+ *   - price: Numeric value
+ *   - turnaround: Delivery time
+ *   - popular: Boolean flag
+ * 
+ * Methods:
+ * - updatePricingLocal: Updates both UI state and (future) backend
+ * - getPublicPricing: Formats data for public consumption
+ */
+
+
+
 import { useState } from 'react';
 
-const useAdminData = () => {
-  // Initialize pricing state that will be shared across both admin and public
-  const [pricing, setPricing] = useState([
+// Create a context-like shared state
+let sharedPricingState = [
     {
       id: 1,
       name: 'Express',
@@ -44,19 +74,23 @@ const useAdminData = () => {
       turnaround: 'Custom',
       popular: false
     }
-  ]);
+  ];
+
+  const useAdminData = () => {
+  const [pricing, setPricing] = useState(sharedPricingState);
 
   const updatePricingLocal = (id, newPrice) => {
-    setPricing(prevPricing => 
-      prevPricing.map(item => 
-        item.id === id ? { ...item, price: newPrice } : item
-      )
+    const updatedPricing = pricing.map(item => 
+      item.id === id ? { ...item, price: newPrice } : item
     );
+    
+    // Update both local state and shared state
+    setPricing(updatedPricing);
+    sharedPricingState = updatedPricing;
   };
 
-  // Format pricing data for public view
   const getPublicPricing = () => {
-    return pricing.map(plan => ({
+    return sharedPricingState.map(plan => ({
       package: plan.name,
       photocount: `${plan.photos} photos`,
       turnaround: plan.turnaround,

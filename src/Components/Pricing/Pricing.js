@@ -1,14 +1,12 @@
 import React from 'react';
 import styles from './Pricing.module.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import { pricingPlans } from './pricingData';
+import useAdminData from 'D:/reactforme/src/pages/AdminPortal/hooks/useAdminData.js';
 
-/**
- * Pricing component with responsive, attractive pricing table
- * @component
- * @returns {JSX.Element} Pricing section
- */
 const Pricing = () => {
+  const { getPublicPricing } = useAdminData();
+  const pricingPlans = getPublicPricing();
+
   return (
     <section className={styles.pricingSection}>
       <Container>
@@ -20,8 +18,8 @@ const Pricing = () => {
           </Col>
         </Row>
 
+        {/* Desktop Table */}
         <div className={styles.pricingTable}>
-          {/* Table Header */}
           <div className={styles.tableHeader}>
             <div className={styles.headerCell}>Package</div>
             <div className={styles.headerCell}>Photo Count</div>
@@ -29,7 +27,6 @@ const Pricing = () => {
             <div className={styles.headerCell}>Price</div>
           </div>
 
-          {/* Table Body */}
           {pricingPlans.map((plan, index) => (
             <div 
               key={index} 
@@ -43,7 +40,6 @@ const Pricing = () => {
               <div className={styles.tableCell}>{plan.turnaround}</div>
               <div className={`${styles.tableCell} ${styles.priceCell}`}>
                 {plan.price}
-                
               </div>
             </div>
           ))}

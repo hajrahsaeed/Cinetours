@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Tab, Nav, Row, Col } from 'react-bootstrap';
 import styles from './styles/Admin.module.css';
-import OrderManagement from './components/OrderManagement/OrderList';
+import OrderList from './components/OrderManagement/OrderList';
 import PromptFeedback from './components/PromptFeedback/PromptViewer';
-import LogsStatus from './components/LogsStatus/JobTracker';
-import ClientManagement from './components/ClientManagement/ClientList';
+import JobTracker from './components/LogsStatus/JobTracker';
+import ClientList from './components/ClientManagement/ClientList';
 import PricingEditor from './components/PricingEditor/PricingForm';
 import Notifications from './components/Notifications/AlertsPanel';
 
-/**
- * Admin Portal Main Layout
- * Tab-based navigation for all admin features
- * 
- * Backend Requirements:
- * - Authentication middleware for admin routes
- * - Role-based access control (RBAC)
- */
 const AdminPortal = () => {
   const [activeTab, setActiveTab] = useState('orders');
 
@@ -35,7 +27,7 @@ const AdminPortal = () => {
                 onClick={() => setActiveTab('orders')}
                 className={activeTab === 'orders' ? styles.activeTab : ''}
               >
-                <i className="bi bi-card-checklist"></i> Order Management
+                <i className="bi bi-card-checklist me-2"></i> Order Management
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -44,7 +36,7 @@ const AdminPortal = () => {
                 onClick={() => setActiveTab('prompts')}
                 className={activeTab === 'prompts' ? styles.activeTab : ''}
               >
-                <i className="bi bi-chat-square-text"></i> Prompt Feedback
+                <i className="bi bi-chat-square-text me-2"></i> Prompt Feedback
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -53,7 +45,7 @@ const AdminPortal = () => {
                 onClick={() => setActiveTab('logs')}
                 className={activeTab === 'logs' ? styles.activeTab : ''}
               >
-                <i className="bi bi-clipboard2-data"></i> Logs & Status
+                <i className="bi bi-clipboard2-data me-2"></i> Logs & Status
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -62,7 +54,7 @@ const AdminPortal = () => {
                 onClick={() => setActiveTab('clients')}
                 className={activeTab === 'clients' ? styles.activeTab : ''}
               >
-                <i className="bi bi-people"></i> Client Management
+                <i className="bi bi-people me-2"></i> Client Management
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -71,7 +63,7 @@ const AdminPortal = () => {
                 onClick={() => setActiveTab('pricing')}
                 className={activeTab === 'pricing' ? styles.activeTab : ''}
               >
-                <i className="bi bi-tag"></i> Pricing Editor
+                <i className="bi bi-tag me-2"></i> Pricing Editor
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -80,7 +72,7 @@ const AdminPortal = () => {
                 onClick={() => setActiveTab('notifications')}
                 className={activeTab === 'notifications' ? styles.activeTab : ''}
               >
-                <i className="bi bi-bell"></i> Notifications
+                <i className="bi bi-bell me-2"></i> Notifications
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -89,16 +81,16 @@ const AdminPortal = () => {
         <Col md={9} className={styles.contentArea}>
           <Tab.Content>
             <Tab.Pane active={activeTab === 'orders'}>
-              <OrderManagement />
+              <OrderList />
             </Tab.Pane>
             <Tab.Pane active={activeTab === 'prompts'}>
               <PromptFeedback />
             </Tab.Pane>
             <Tab.Pane active={activeTab === 'logs'}>
-              <LogsStatus />
+              <JobTracker />
             </Tab.Pane>
             <Tab.Pane active={activeTab === 'clients'}>
-              <ClientManagement />
+              <ClientList />
             </Tab.Pane>
             <Tab.Pane active={activeTab === 'pricing'}>
               <PricingEditor />
