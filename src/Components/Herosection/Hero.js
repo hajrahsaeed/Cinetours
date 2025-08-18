@@ -2,10 +2,9 @@ import React from 'react';
 import styles from './Hero.module.css';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import heroVideo from '../../assets/videos/hero-background.mp4'; // Adjust the path as necessary
+import heroVideo from '../../assets/videos/hero-background.mp4';
 
 const Hero = ({ title, subtitle }) => {
-  // Button animation variants
   const buttonVariants = {
     hover: { scale: 1.05, boxShadow: "0 5px 15px rgba(0,0,0,0.3)" },
     tap: { scale: 0.98 }
@@ -13,7 +12,7 @@ const Hero = ({ title, subtitle }) => {
 
   return (
     <section className={styles.hero}>
-      {/* Video Background (existing code) */}
+      {/* Video Background */}
       <div className={styles.videoContainer}>
         <video autoPlay loop muted playsInline className={styles.video}>
           <source src={heroVideo} type="video/mp4" />

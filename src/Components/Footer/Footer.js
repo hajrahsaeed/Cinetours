@@ -37,7 +37,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
             <div className={styles.brand}>
-              <span className={styles.logo}>CineTours</span>
+              <span className={styles.logo}>QuantumToursTours</span>
               <p className={styles.tagline}>Transforming real estate marketing</p>
             </div>
           </Col>
@@ -63,7 +63,7 @@ const Footer = () => {
           {/* Copyright */}
           <Col md={3} className="text-center text-md-end">
             <p className={styles.copyright}>
-              &copy; 2025 CineTours. All rights reserved.
+              &copy; 2025 QuantumTours. All rights reserved.
             </p>
           </Col>
         </Row>
