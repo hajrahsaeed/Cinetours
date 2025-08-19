@@ -2,24 +2,33 @@
 
 /* Base Styles */
 .sectionWrapper {
-  background-color: #f8f9fa;
+  background-color: black;
   position: relative;
   overflow: hidden;
   width: 100%;
+  border: 3px solid transparent; /* transparent base */
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* makes gradient cover full border */
 }
 
 /* Header Section */
 .headerDesign {
   width: 100%;
   padding: 2rem 1rem;
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  border-radius: 2px;
+  
 }
 
 .title {
   font-size: 1.8rem;
   font-weight: 700;
-  color: white;
-  margin-bottom: 1rem;
+background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding: 0.1em 0;
+  text-shadow: none;  margin-bottom: 1rem;
 }
 
 .description {
@@ -37,9 +46,12 @@
 }
 
 .comparisonFrame {
-  background: white;
+  background: transparent;
+  border: 3px solid transparent; /* set transparent so gradient shows */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* ensures gradient covers border */
   overflow: hidden;
   margin: 0 auto;
   max-width: 1200px;
@@ -110,9 +122,8 @@
   display: flex;
   justify-content: space-between;
   padding: 12px 15px;
-  background: #f8f9fa;
+background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
   border-top: 1px solid #eee;
-  color: linear-gradient(135deg, var(--brand1), var(--brand2));
 }
 
 .mediaLabel {
