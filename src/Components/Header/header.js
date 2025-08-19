@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="container-fluid bg-white shadow-sm">
+    <header className="container-fluid bg-black shadow-sm">
       <nav className="navbar navbar-expand-md navbar-light container py-2 py-md-3">
         {/* Hamburger (mobile only) */}
         <button
@@ -31,16 +31,16 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarContent">
             <ul className="navbar-nav gap-md-3 me-auto">
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-dark" to="/">Home</Link>
+                <Link className="nav-link fw-medium text-white" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-dark" to="/portal">Client Portal</Link>
+                <Link className="nav-link fw-medium text-white" to="/portal">Client Portal</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-dark" to="/pricing">Pricing</Link>
+                <Link className="nav-link fw-medium text-white" to="/pricing">Pricing</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-dark" to="/admin">Admin Panel</Link>
+                <Link className="nav-link fw-medium text-white" to="/admin">Admin Panel</Link>
               </li>
             </ul>
           </div>
