@@ -46,7 +46,7 @@ const Header = () => {
           </div>
 
           {/* Right-aligned buttons - unchanged */}
-          <div className="two-buttons d-flex gap-1 ms-auto">
+          <div className=" d-flex gap-1 ms-auto">
             <button className="btn btn-outline-secondary btn-sm">Sign in</button>
             <button className="btn gradient-button btn-sm">Start</button>
           </div>

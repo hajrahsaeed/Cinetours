@@ -12,9 +12,9 @@ const Pricing = () => {
       <Container>
         <Row className="justify-content-center mb-5">
           <Col xs={12} className="text-center">
-            <h2 className={styles.sectionTitle}>Pricing</h2>
+            <h2 className={styles.sectionTitle}>Package Options</h2>
             <div className={styles.titleUnderline}></div>
-            <p className={styles.sectionSubtitle}>Choose the perfect plan for your needs</p>
+            <p className={styles.sectionSubtitle}>Explore our flexible package options, and value so you can choose the plan that best matches your goals and budget.</p>
           </Col>
         </Row>
 

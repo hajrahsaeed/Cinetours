@@ -74,13 +74,13 @@ const HowItWorks = () => {
         >
           <path
             fill="url(#gradWave)"
-            fillOpacity="5"
+            fillOpacity="0.4"
             d="M0,160L48,165.3C96,171,192,181,288,165.3C384,149,480,107,576,85.3C672,64,768,64,864,96C960,128,1056,192,1152,202.7C1248,213,1344,171,1392,149.3L1440,128V320H0Z"
           ></path>
           <defs>
             <linearGradient id="gradWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#007BFF', stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: '#0077b6', stopOpacity: 1 }} />
+              <stop offset="0%" style={{ stopColor: '#1fb454 ', stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: '#a855f7 ', stopOpacity: 1 }} />
             </linearGradient>
           </defs>
         </svg>

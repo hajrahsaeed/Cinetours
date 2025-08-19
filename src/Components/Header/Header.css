@@ -14,7 +14,7 @@
 }
 
 .gradient-button {
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
   border: none;
   color: white;
   transition: all 0.3s ease;

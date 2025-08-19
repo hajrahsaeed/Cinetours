@@ -81,17 +81,17 @@ p {
 }
 
 .primaryButton {
-  background-color: #609efb;
+background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
   color: white;
 }
 
 .secondaryButton {
-  background-color: #0d3167;
+background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
   color: white;
 }
 
 .tertiaryButton {
-  background-color: #e76ccf;
+background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
   color: white;
 }
 
