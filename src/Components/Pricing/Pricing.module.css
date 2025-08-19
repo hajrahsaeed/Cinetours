@@ -1,7 +1,14 @@
 /* Section Styling */
 .pricingSection {
   padding: 5rem 0;
-  background-color: black;
+background: 
+    radial-gradient(
+      circle 600px at 50% 120%,   /* circle centered at top */
+      rgba(109, 40, 217, 0.4),    /* #6d28d9 with 40% opacity */
+      rgba(168, 85, 247, 0.25),   /* #a855f7 with 25% opacity */
+      transparent 80%
+    ),
+    #000000; /* solid black base */
 }
 
 .sectionTitle {

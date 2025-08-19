@@ -70,6 +70,12 @@ const CostComparison = () => {
 
   return (
     <section className={styles.section}>
+      {/* Floating particles background */}
+  <div className={styles.particles}>
+    {Array.from({ length: 20 }).map((_, i) => (
+      <span key={i} className={styles.particle}></span>
+    ))}
+  </div>
       <div className={styles.container}>
         {/* Title Section */}
         <motion.div 
@@ -284,7 +290,7 @@ const CostComparison = () => {
             <motion.p
               animate={{
                 scale: [1, 1.05, 1],
-                color: ["#21ABB5", "#e63946", "#21ABB5"]
+                color: ["white"]
               }}
               transition={{
                 duration: 2,

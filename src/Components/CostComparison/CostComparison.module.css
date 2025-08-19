@@ -3,7 +3,6 @@
 /* Base Styles */
 .section {
   padding: 4rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .container {
@@ -36,7 +35,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
@@ -60,7 +59,7 @@
 
 .mobileCategory {
   font-size: 1.3rem;
-  color: hsl(var(--primary));
+  color: white;
   margin: 2rem 0 1rem;
   display: flex;
   align-items: center;
@@ -68,7 +67,7 @@
 }
 
 .mobileCard {
-  background: white;
+  background: black;
   border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 1rem;
@@ -137,17 +136,17 @@
 
 .mobileLabel {
   font-size: 0.8rem;
-  color: #6c757d;
+  color: white;
   margin-bottom: 0.3rem;
 }
 
 .mobileValueAI {
   font-weight: 700;
-  color: hsl(var(--primary));
+  color: white;
 }
 
 .mobileValueTraditional {
-  color: red;
+  color: white;
   position: relative;
 }
 
@@ -174,7 +173,7 @@
 
 /* Header Row */
 .tableHeader {
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
 
   color: white;
 }
@@ -239,6 +238,7 @@ td {
 }
 
 .categoryCell {
+  background: #000;
   font-weight: 600;
   color: #495057;
   border-right: 1px dashed rgba(0,0,0,0.1);
@@ -260,12 +260,13 @@ td {
   justify-content: center;
   background: rgba(33, 171, 181, 0.1);
   border-radius: 50%;
-  color: hsl(var(--primary));
+  color: #1fb454;
 }
 
 .featureCell {
+  background: #000;
   font-weight: 500;
-  color: #212529;
+  color: white;
   text-align: left;
 }
 
@@ -290,14 +291,16 @@ td {
 }
 
 .aiCell {
+  background: #000;
   font-weight: 700;
-  color: hsl(var(-gr-primary));
+  color: white;
   border-left: 1px solid rgba(33, 171, 181, 0.2);
   border-right: 1px solid rgba(33, 171, 181, 0.2);
 }
 
 .traditionalCell {
-  color: red;
+  background: #000;
+  color: white;
   font-weight: 500;
   border-right: 1px solid rgba(108, 117, 125, 0.2);
 }
@@ -309,6 +312,7 @@ td {
 }
 
 .advantageCell {
+  background: #000;
   font-weight: 600;
   color: red;
 }
@@ -331,7 +335,7 @@ td {
 
 .conclusionCard {
   display: inline-block;
-  background: white;
+  background: #1fb454;
   padding: 1.5rem 2rem;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -383,3 +387,85 @@ td {
     font-size: 1rem;
   }
 }
+
+
+
+.section {
+  position: relative;
+  padding: 4rem 0;
+background: 
+    radial-gradient(
+      circle 600px at 50% -20%,   /* circle centered at top */
+      rgba(109, 40, 217, 0.4),    /* #6d28d9 with 40% opacity */
+      rgba(168, 85, 247, 0.25),   /* #a855f7 with 25% opacity */
+      transparent 80%
+    ),
+    #000000; /* solid black base */
+  overflow: hidden;
+  color: white;
+}
+
+/* Particles wrapper */
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Each particle */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.7); /* purple glow */
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.9);
+  animation: floatParticle linear infinite;
+}
+
+/* Random floating animation */
+@keyframes floatParticle {
+  from {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  to {
+    transform: translate(
+      calc(-50px + 100px * random()), 
+      calc(-50px + 100px * random())
+    );
+    opacity: 0.3;
+  }
+}
+
+/* Content */
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(5px);
+  transition: 0.3s ease;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
