@@ -37,7 +37,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <Col md={4} className="text-center text-md-start mb-3 mb-md-0">
             <div className={styles.brand}>
-              <span className={styles.logo}>QuantumToursTours</span>
+              <span className={styles.logo}>QuantumTours</span>
               <p className={styles.tagline}>Transforming real estate marketing</p>
             </div>
           </Col>

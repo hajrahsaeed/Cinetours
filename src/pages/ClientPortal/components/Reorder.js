@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, Table, Button, Badge } from 'react-bootstrap';
 import styles from '../styles/Portal.module.css';
 
+
+
 /**
  * Displays past orders for reordering
  * @component
@@ -15,11 +17,10 @@ import styles from '../styles/Portal.module.css';
  *   - photos: number
  * - Clicking "Reorder" should POST to /api/orders/{orderId}/reorder
  */
+
 const Reorder = ({ pastOrders }) => {
   const handleReorder = async (orderId) => {
     try {
-      // TODO: Implement API call
-      // await axios.post(`/api/orders/${orderId}/reorder`);
       alert(`Order #${orderId} has been recreated!`);
     } catch (error) {
       console.error('Reorder failed:', error);
@@ -27,37 +28,35 @@ const Reorder = ({ pastOrders }) => {
   };
 
   return (
-    <Card className={styles.portalCard}>
-      <Card.Header as="h4">Past Orders</Card.Header>
-      <Card.Body className="p-0">
+    <Card className={styles.reorderCard}>
+      <Card.Header as="h4" className={styles.reorderHeader}>Past Orders</Card.Header>
+      <Card.Body className={styles.reorderBody}>
         <div className={styles.responsiveTableContainer}>
-          <Table striped hover className="mb-0">
+          <Table className={styles.reorderTable}>
             <thead className={styles.tableHeader}>
-              <tr>
-                <th>Order ID</th>
-                <th>Date</th>
-                <th>Package</th>
-                <th>Photos</th>
-                <th>Action</th>
+              <tr className={styles.tableHeaderRow}>
+                <th className={styles.tableHeaderCell}>Order ID</th>
+                <th className={styles.tableHeaderCell}>Date</th>
+                <th className={styles.tableHeaderCell}>Package</th>
+                <th className={styles.tableHeaderCell}>Photos</th>
+                <th className={styles.tableHeaderCell}>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.tableBody}>
               {pastOrders.map(order => (
-                <tr key={order.id}>
-                  <td data-label="Order ID">#{order.id}</td>
-                  <td data-label="Date">
+                <tr key={order.id} className={styles.tableRow}>
+                  <td className={styles.tableCell} data-label="Order ID">#{order.id}</td>
+                  <td className={styles.tableCell} data-label="Date">
                     {new Date(order.date).toLocaleDateString()}
                   </td>
-                  <td data-label="Package">
-                    <Badge bg="primary">{order.package}</Badge>
+                  <td className={styles.tableCell} data-label="Package">
+                    <Badge className={styles.packageBadge}>{order.package}</Badge>
                   </td>
-                  <td data-label="Photos">{order.photos}</td>
-                  <td data-label="Action">
-                    <Button 
-                      variant="outline-success"
-                      size="sm"
+                  <td className={styles.tableCell} data-label="Photos">{order.photos}</td>
+                  <td className={styles.tableCell} data-label="Action">
+                    <Button
                       onClick={() => handleReorder(order.id)}
-                      className="w-100"
+                      className={`${styles.reorderButton} w-100`}
                     >
                       Reorder
                     </Button>

@@ -30,47 +30,45 @@ const Invoices = ({ invoices }) => {
     }
   };
 
-  const statusVariant = {
-    paid: 'success',
-    pending: 'warning',
-    failed: 'danger'
-  };
-
   return (
-    <Card className={styles.portalCard}>
-      <Card.Header as="h4">Invoice History</Card.Header>
-      <Card.Body className="p-0">
-        <div className={styles.responsiveTableContainer}>
-          <Table striped hover className="mb-0">
-            <thead className={styles.tableHeader}>
+    <Card className={styles.invoiceCard}>
+      <Card.Header as="h4" className={styles.invoiceHeader}>
+        Invoice History
+      </Card.Header>
+      <Card.Body className={`p-0 ${styles.invoiceBody}`}>
+        <div className={styles.invoiceTableWrapper}>
+          <Table className={`mb-0 ${styles.invoiceTable}`}>
+            <thead className={styles.invoiceTableHead}>
               <tr>
-                <th>Invoice #</th>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th className={styles.invoiceTableHeading}>Invoice #</th>
+                <th className={styles.invoiceTableHeading}>Date</th>
+                <th className={styles.invoiceTableHeading}>Amount</th>
+                <th className={styles.invoiceTableHeading}>Status</th>
+                <th className={styles.invoiceTableHeading}>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.invoiceTableBody}>
               {invoices.map(invoice => (
-                <tr key={invoice.id}>
-                  <td data-label="Invoice #">#{invoice.id}</td>
-                  <td data-label="Date">
+                <tr key={invoice.id} className={styles.invoiceRow}>
+                  <td data-label="Invoice #" className={styles.invoiceCell}>
+                    #{invoice.id}
+                  </td>
+                  <td data-label="Date" className={styles.invoiceCell}>
                     {new Date(invoice.date).toLocaleDateString()}
                   </td>
-                  <td data-label="Amount">${invoice.amount.toFixed(2)}</td>
-                  <td data-label="Status">
-                    <Badge bg={statusVariant[invoice.status]}>
+                  <td data-label="Amount" className={styles.invoiceCell}>
+                    ${invoice.amount.toFixed(2)}
+                  </td>
+                  <td data-label="Status" className={styles.invoiceCell}>
+                    <Badge className={`${styles.invoiceStatus} ${styles[`status_${invoice.status}`]}`}>
                       {invoice.status}
                     </Badge>
                   </td>
-                  <td data-label="Action">
-                    <Button 
-                      variant="outline-primary"
-                      size="sm"
+                  <td data-label="Action" className={styles.invoiceCell}>
+                    <Button
                       onClick={() => handleDownload(invoice.id)}
                       disabled={invoice.status !== 'paid'}
-                      className="w-100"
+                      className={styles.invoiceDownloadBtn}
                     >
                       Download
                     </Button>

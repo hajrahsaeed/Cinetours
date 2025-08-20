@@ -2,20 +2,6 @@ import React, { useState } from 'react';
 import { Card, Form, Button, Image } from 'react-bootstrap';
 import styles from '../styles/Portal.module.css';
 
-/**
- * Manages branding assets (logo, colors, fonts)
- * @component
- * @param {Object} assets - Current branding assets
- * @param {function} onUpdate - Update handler
- * 
- * Backend Integration:
- * - Expects assets object with:
- *   - logo: string (URL)
- *   - introVideo: string (URL)
- *   - font: string
- *   - colorScheme: string (hex)
- * - onUpdate should POST to /api/branding
- */
 const BrandAssets = ({ assets, onUpdate }) => {
   const [formData, setFormData] = useState(assets);
   const [logoPreview, setLogoPreview] = useState(assets.logo);
@@ -41,43 +27,49 @@ const BrandAssets = ({ assets, onUpdate }) => {
 
   return (
     <Card className={styles.portalCard}>
-      <Card.Header as="h4">Brand Assets</Card.Header>
-      <Card.Body>
-        <Form onSubmit={handleSubmit}>
+      <Card.Header as="h4" className={styles.cardHeader}>
+        Brand Assets
+      </Card.Header>
+      <Card.Body className={styles.cardBody}>
+        <Form onSubmit={handleSubmit} className={styles.brandForm}>
+          
           {/* Logo Upload */}
-          <Form.Group className="mb-4">
-            <Form.Label>Company Logo</Form.Label>
-            <div className="d-flex align-items-center gap-3">
+          <Form.Group className={styles.formGroup}>
+            <Form.Label className={styles.formLabel}>Company Logo</Form.Label>
+            <div className={styles.logoUploadWrapper}>
               <Image 
                 src={logoPreview} 
                 alt="Logo preview" 
                 width={80} 
-                className="border p-2"
+                className={styles.logoPreview}
               />
               <Form.Control 
                 type="file" 
                 accept="image/*"
                 onChange={handleFileChange}
+                className={styles.fileInput}
               />
             </div>
           </Form.Group>
 
           {/* Color Scheme */}
-          <Form.Group className="mb-4">
-            <Form.Label>Primary Color</Form.Label>
+          <Form.Group className={styles.formGroup}>
+            <Form.Label className={styles.formLabel}>Primary Color</Form.Label>
             <Form.Control
               type="color"
               value={formData.colorScheme}
               onChange={(e) => setFormData({...formData, colorScheme: e.target.value})}
+              className={styles.colorPicker}
             />
           </Form.Group>
 
           {/* Font Selection */}
-          <Form.Group className="mb-4">
-            <Form.Label>Font Family</Form.Label>
+          <Form.Group className={styles.formGroup}>
+            <Form.Label className={styles.formLabel}>Font Family</Form.Label>
             <Form.Select
               value={formData.font}
               onChange={(e) => setFormData({...formData, font: e.target.value})}
+              className={styles.fontSelect}
             >
               <option>Montserrat</option>
               <option>Roboto</option>
@@ -86,7 +78,7 @@ const BrandAssets = ({ assets, onUpdate }) => {
             </Form.Select>
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button type="submit" className={styles.submitButton}>
             Save Changes
           </Button>
         </Form>

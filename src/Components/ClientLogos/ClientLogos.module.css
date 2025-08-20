@@ -76,7 +76,6 @@ background:
   left: 0;
   right: 0;
   height: 1px;
-  background:linear-gradient(135deg, var(--brand1), var(--brand2));
   z-index: 3;
 }
 

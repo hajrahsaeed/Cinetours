@@ -1,4 +1,8 @@
 /* Main Layout */
+.portalTitle{
+  color: white;
+}
+
 .portalContainer {
   min-height: calc(100vh - 120px);
   padding: 0;
@@ -11,15 +15,22 @@
 
 .sidebar {
   width: 280px;
-  background: #2c3e50;
-  color: white;
+  background: black;
   padding: 2rem 1rem;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* ensures gradient covers border */
 }
 
 .contentArea {
   flex: 1;
   padding: 2rem;
-  background: #f8f9fa;
+  background: black;
+  border: 3px solid ;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* ensures gradient covers border */
 }
 
 /* Navigation */
@@ -33,7 +44,8 @@
 }
 
 :global(.nav-pills .nav-link.active) {
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background:  linear-gradient(135deg, #1fb454 0, #15803d 100%);
+
   color: #fff;
 }
 
@@ -42,6 +54,9 @@
 }
 
 /* Cards */
+.card-body{
+  background: #000;
+}
 .portalCard {
   border: none;
   box-shadow: 0 2px 20px rgba(0,0,0,0.1);
@@ -49,7 +64,7 @@
 }
 
 .portalCard .card-header {
-  background: white;
+  background: black;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   font-weight: 600;
 }
@@ -63,6 +78,8 @@
 
 .packageCard {
   border: 1px solid #dee2e6;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* ensures gradient covers border */
   border-radius: 8px;
   padding: 1.25rem;
   cursor: pointer;
@@ -71,7 +88,7 @@
 }
 
 .packageCard:hover {
-  border-color: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background-color: #1fb454;
 }
 
 .packageCard.selected {
@@ -81,9 +98,8 @@
 
 .price {
   font-weight: 700;
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-  background-clip: text;
-  color: transparent;  font-size: 1.25rem;
+  color: white;
+    font-size: 1.25rem;
   margin-top: 0.5rem;
 }
 
@@ -105,7 +121,7 @@
 }
 
 .tableHeader {
-  background-color: #f8f9fa;
+  background-color: black;
 }
 
 /* Responsive table cells */
@@ -153,4 +169,363 @@
   td:last-child {
     border-bottom: 0;
   }
+}
+
+
+
+
+                     /* Upload order section */
+
+
+/* Portal Card */
+.portalCardHeader {
+  background-color: black;
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* ensures gradient covers border */
+}
+.portalCardBody {
+  background-color: #000;
+}
+
+/* File Upload Section */
+.fileUploadGroup {
+color: white;
+  margin-bottom: 1.5rem;
+}
+.fileUploadLabel {
+  color: #fff;
+}
+.fileUploadInput {
+  background-color: #1fb454;
+  color: black;
+}
+.fileUploadText {
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.fileUploadInfo {
+  color: white;
+}
+
+/* Package Selection Section */
+.packageGroup {
+  color: #fff;
+  
+}
+.packageLabel {
+  color: black;
+}
+.packageName {
+  color: white;
+}
+.packagePhotos {
+  color: white;
+}
+
+/* Add-ons Section */
+.addonsGroup {
+  color: white;
+}
+.addonsLabel {
+  color: white;
+}
+.addonOption {
+  color: white;
+}
+
+/* Submit Button */
+.submitButton {
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+
+}
+
+
+
+                                   /* order status */
+
+
+
+/* Card container */
+.orderCard {
+  background: #000;
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+}
+
+/* Header section */
+/* .orderHeader {} */
+
+/* Card body */
+/* .orderBody {} */
+
+/* Loading state */
+/* .loadingContainer {} */
+/* .loadingSpinner {} */
+
+/* Individual order block */
+/* .orderItem {} */
+
+/* Top section: Order ID + Date */
+/* .orderTop {} */
+/* .orderId {} */
+/* .orderDate {} */
+
+/* Progress bar styles */
+/* .orderProgress {} */
+/* .progressStep {} */
+
+/* Bottom section: Package + Photos */
+/* .orderDetails {} */
+/* .orderPackage {} */
+/* .orderPhotos {} */
+
+
+
+                                /* Download Center Styles */
+
+
+/* Wrapper */
+.downloadCenterCard {
+  background: #000;
+  color: white;
+}
+/* .downloadCenterHeader {} */
+/* .downloadCenterBody {} */
+/* .downloadCenterAlert {} */
+
+/* Table */
+.downloadCenterTableWrapper {
+  background-color: #000;
+  border: 1px solid rgb(241, 241, 241) ;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1; /* ensures gradient covers border */
+  
+} 
+/* .downloadCenterTable {} */
+/* .downloadCenterTableHeader {} */
+/* .downloadCenterTableBody {} */
+/* .downloadCenterRow {} */
+
+/* Table Columns */
+.tableColVideo {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+  
+}
+.tableColOrder {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+.tableColDate {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+.tableColAction {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Table Cells */
+.tableCellVideo {
+    background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+.tableCellOrder {
+    background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+.tableCellDate {
+    background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+.tableCellAction {
+    background-color: black !important;
+  color: white !important;
+  border: none !important;
+  
+}
+
+/* Button & Spinner */
+.downloadButton {
+  color: white !important;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  border: none !important;
+}
+/* .downloadSpinner {} */
+
+
+
+    
+                            /* brand assets */
+
+.portalCard {
+  background: hsl(0, 0%, 0%);
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+}
+.cardHeader {
+  background: #000;
+  color: white;
+}
+.cardBody {
+  background: #000;
+  color: white;
+}
+
+/* .brandForm {} */
+.formGroup {
+   background: #000 !important;
+  color: white !important;
+}
+/* .formLabel {} */
+
+.logoUploadWrapper {
+  background: #000 !important;
+  color: white !important;
+}
+/* .logoPreview {} */
+.fileInput {
+  background: #000 !important;
+  color: white !important;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+}
+
+.colorPicker {
+  background: #000 !important;
+  color: white !important;
+  
+}
+.fontSelect {
+  background: #000 !important;
+  color: white !important;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+}
+
+.submitButton {
+  margin-top: 20px;
+  color: white;
+  
+}
+
+
+                                    /* Reorder */
+
+
+/* Card container */
+.reorderCard {
+  background-color: black;
+  color: white;
+  
+}
+/* .reorderHeader {} */
+/* .reorderBody {} */
+
+/* Table */
+/* .responsiveTableContainer {} */
+/* .reorderTable {} */
+/* .tableHeader {} */
+.tableHeaderRow {
+  border: 1px solid #a855f7 ;
+
+}
+.tableHeaderCell {
+    background-color: black !important;
+  color: white !important;
+  
+}
+/* .tableBody {} */
+/* .tableRow {} */
+.tableCell {
+  background-color: black !important;
+  color: white !important;
+  border-bottom: 1px solid #a855f7;
+}
+
+/* Elements */
+/* .packageBadge {} */
+.reorderButton {
+  color: white;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  border: none;
+
+}
+
+                                     /* Invoices */
+
+
+
+/* Card container */
+.invoiceCard {
+  background-color: black;
+  color: white;
+}
+
+/* Header */
+.invoiceHeader {
+  background-color: black !important  ;
+  color: white !important;
+}
+
+/* Body */
+/* .invoiceBody {} */
+
+/* Table wrapper */
+/* .invoiceTableWrapper {} */
+
+/* Table */
+/* .invoiceTable {} */
+
+/* Table head */
+/* .invoiceTableHead {} */
+
+/* Table heading cells */
+.invoiceTableHeading {
+  background-color: black !important  ;
+  color: white !important;
+  border-top: 1px solid #a855f7;
+  
+}
+
+/* Table body */
+/* .invoiceTableBody {} */
+
+/* Table row */
+/* .invoiceRow {} */
+
+/* Table cell */
+.invoiceCell {
+  background-color: black !important  ;
+  color: white !important;
+  border-top: 1px solid ;
+}
+
+/* Invoice status badge */
+/* .invoiceStatus {} */
+
+/* Status variations */
+/* .status_paid {} */
+/* .status_pending {} */
+/* .status_failed {} */
+
+/* Download button */
+.invoiceDownloadBtn {
+  color: white;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  border: none;
 }
