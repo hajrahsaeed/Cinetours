@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Form, Button, Image } from 'react-bootstrap';
-import styles from '../styles/Portal.module.css';
+import styles from './BrandAssets.module.css';
 
 const BrandAssets = ({ assets, onUpdate }) => {
   const [formData, setFormData] = useState(assets);

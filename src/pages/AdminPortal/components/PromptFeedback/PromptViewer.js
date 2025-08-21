@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Form, Button, Tab, Tabs } from 'react-bootstrap';
-import styles from '../../styles/Admin.module.css';
+import styles from './PromptViewer.module.css';
 
 /**
  * Shows prompt and allows feedback submission
@@ -12,44 +12,50 @@ const PromptViewer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // API: POST /admin/feedback { promptId, feedback }
     console.log('Feedback submitted:', feedback);
   };
 
   return (
     <Card className={styles.adminCard}>
-      <Card.Header>
-        <Tabs activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
-          <Tab eventKey="current" title="Current Prompt" />
-          <Tab eventKey="history" title="Version History" />
+      <Card.Header className={styles.cardHeader}>
+        <Tabs
+          activeKey={activeTab}
+          onSelect={(k) => setActiveTab(k)}
+          className={styles.tabsWrapper}
+        >
+          <Tab eventKey="current" title="Current Prompt" tabClassName={styles.tabItem} />
+          <Tab eventKey="history" title="Version History" tabClassName={styles.tabItem} />
         </Tabs>
       </Card.Header>
-      <Card.Body>
+
+      <Card.Body className={styles.cardBody}>
         {activeTab === 'current' ? (
           <>
-            <div className="mb-4">
-              <h6>Original Prompt:</h6>
-              <p className="text-muted">
+            <div className={styles.promptSection}>
+              <h6 className={styles.promptTitle}>Original Prompt:</h6>
+              <p className={styles.promptText}>
                 "Create a bright and airy video tour of this modern 3-bedroom apartment"
               </p>
             </div>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3">
-                <Form.Label>Your Feedback</Form.Label>
+
+            <Form onSubmit={handleSubmit} className={styles.feedbackForm}>
+              <Form.Group className={styles.formGroup}>
+                <Form.Label className={styles.formLabel}>Your Feedback</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={3}
                   value={feedback}
                   onChange={(e) => setFeedback(e.target.value)}
+                  className={styles.formControl}
                 />
               </Form.Group>
-              <Button variant="primary" type="submit">
+              <Button type="submit" className={styles.submitButton}>
                 Request Regeneration
               </Button>
             </Form>
           </>
         ) : (
-          <div>Version history will appear here</div>
+          <div className={styles.historySection}>Version history will appear here</div>
         )}
       </Card.Body>
     </Card>

@@ -1,0 +1,53 @@
+/* BrandAssets.module.css */
+
+.portalCard {
+  background: hsl(0, 0%, 0%);
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1;
+}
+
+.cardHeader {
+  background: #000;
+  color: white;
+}
+
+.cardBody {
+  background: #000;
+  color: white;
+}
+
+.formGroup {
+  background: #000 !important;
+  color: white !important;
+}
+
+.logoUploadWrapper {
+  background: #000 !important;
+  color: white !important;
+}
+
+.fileInput {
+  background: #000 !important;
+  color: white !important;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1;
+}
+
+.colorPicker {
+  background: #000 !important;
+  color: white !important;
+}
+
+.fontSelect {
+  background: #000 !important;
+  color: white !important;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1;
+}
+
+.submitButton {
+  margin-top: 20px;
+  color: white;
+}

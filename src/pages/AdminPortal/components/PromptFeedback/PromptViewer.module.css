@@ -1,0 +1,58 @@
+                                       /* Propmet management */
+
+
+
+/* .adminCard {} */
+
+/* Header & Tabs */
+.cardHeader {  background-color: black !important;
+  color: white !important;
+    
+}
+/* .tabsWrapper {} */
+.tabItem{
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  color: white !important;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+
+}
+.tabItem:hover {
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  color: white !important;
+  border: none;
+}
+
+
+
+/* Body */
+.cardBody {background-color: black !important;
+  color: white !important;
+  
+  }
+
+/* Prompt section */
+/* .promptSection {} */
+/* .promptTitle {} */
+/* .promptText {} */
+
+/* Feedback form */
+/* .feedbackForm {} */
+/* .formGroup {} */
+/* .formLabel {} */
+.formControl {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Submit button */
+.submitButton {
+  color: white;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+ border: none;
+  margin-top: 20px;}
+
+/* History section */
+/* .historySection {} */
+

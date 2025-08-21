@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Table, Button } from 'react-bootstrap';
-import styles from '../../styles/Admin.module.css';
+import styles from './ClientManagement.module.css';
 
 /**
  * Displays client list with usage stats
@@ -19,34 +19,37 @@ const ClientList = () => {
 
   return (
     <Card className={styles.adminCard}>
+      {/* Header */}
       <Card.Header className={styles.cardHeader}>
-        <div className="d-flex justify-content-between">
-          <h5>Client Management</h5>
-          <Button size="sm" variant="outline-primary">
+        <div className={styles.headerContainer}>
+          <h5 className={styles.headerTitle}>Client Management</h5>
+          <Button size="sm" className={styles.exportButton}>
             Export
           </Button>
         </div>
       </Card.Header>
-      <Card.Body>
-        <Table hover responsive>
-          <thead>
-            <tr>
-              <th>Client</th>
-              <th>Email</th>
-              <th>Joined</th>
-              <th>Orders</th>
-              <th>Actions</th>
+
+      {/* Body */}
+      <Card.Body className={styles.cardBody}>
+        <Table hover responsive className={styles.clientTable}>
+          <thead className={styles.tableHead}>
+            <tr className={styles.tableRowHead}>
+              <th className={styles.tableHeading}>Client</th>
+              <th className={styles.tableHeading}>Email</th>
+              <th className={styles.tableHeading}>Joined</th>
+              <th className={styles.tableHeading}>Orders</th>
+              <th className={styles.tableHeading}>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={styles.tableBody}>
             {clients.map((client) => (
-              <tr key={client.id}>
-                <td>{client.name}</td>
-                <td>{client.email}</td>
-                <td>{client.joined}</td>
-                <td>{client.orders}</td>
-                <td>
-                  <Button size="sm" variant="outline-secondary">
+              <tr key={client.id} className={styles.tableRow}>
+                <td className={styles.tableCell}>{client.name}</td>
+                <td className={styles.tableCell}>{client.email}</td>
+                <td className={styles.tableCell}>{client.joined}</td>
+                <td className={styles.tableCell}>{client.orders}</td>
+                <td className={styles.tableCell}>
+                  <Button size="sm" className={styles.viewButton}>
                     View
                   </Button>
                 </td>

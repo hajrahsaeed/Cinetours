@@ -1,0 +1,68 @@
+/* Wrapper Card */
+.adminCard {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+
+}
+
+/* Header */
+.cardHeader {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 16px;
+}
+.cardTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Body */
+.cardBody {
+  padding: 16px;
+}
+
+/* List Group */
+.listGroup {
+  background: transparent;
+}
+.listItem {
+  background: #000;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+
+}
+.itemLabel {
+  font-size: 0.95rem;
+}
+.switchInput {
+  cursor: pointer;
+}
+
+/* Save Button */
+.saveButton {
+  margin-top: 15px;
+  background-color: #00c853 !important; /* Green */
+  border: none !important;
+  color: #fff !important;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.saveButton:hover {
+  background-color: #00e676 !important;
+}

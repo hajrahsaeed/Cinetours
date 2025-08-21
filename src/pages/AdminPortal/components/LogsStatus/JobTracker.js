@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, ListGroup, Badge } from 'react-bootstrap';
-import styles from '../../styles/Admin.module.css';
+import styles from './JobTracker.module.css';
 
 /**
  * Displays detailed job processing logs
@@ -22,29 +22,23 @@ const JobTracker = () => {
     }
   ];
 
-  const statusVariant = {
-    processing: 'info',
-    success: 'success',
-    error: 'danger'
-  };
-
   return (
-    <Card className={styles.adminCard}>
-      <Card.Header className={styles.cardHeader}>
-        <h5>Job Processing Logs</h5>
+    <Card className={styles.jobTrackerCard}>
+      <Card.Header className={styles.jobTrackerHeader}>
+        <h5 className={styles.jobTrackerTitle}>Job Processing Logs</h5>
       </Card.Header>
-      <Card.Body>
-        <ListGroup variant="flush">
+      <Card.Body className={styles.jobTrackerBody}>
+        <ListGroup className={styles.jobTrackerList}>
           {logs.map((log) => (
-            <ListGroup.Item key={log.id}>
-              <div className="d-flex justify-content-between">
-                <span>
-                  <Badge bg={statusVariant[log.status]} className="me-2">
+            <ListGroup.Item key={log.id} className={styles.jobTrackerListItem}>
+              <div className={styles.logItemWrapper}>
+                <span className={styles.logMessageWrapper}>
+                  <Badge className={`${styles.logBadge} ${styles[log.status]}`}>
                     {log.status}
                   </Badge>
-                  {log.message}
+                  <span className={styles.logMessage}>{log.message}</span>
                 </span>
-                <small className="text-muted">{log.timestamp}</small>
+                <small className={styles.logTimestamp}>{log.timestamp}</small>
               </div>
             </ListGroup.Item>
           ))}

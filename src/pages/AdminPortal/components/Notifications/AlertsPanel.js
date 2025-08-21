@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Form, Button, ListGroup } from 'react-bootstrap';
-import styles from '../../styles/Admin.module.css';
+import styles from './Notifications.module.css';
 
 /**
  * Manages notification settings
@@ -28,38 +28,43 @@ const AlertsPanel = () => {
   return (
     <Card className={styles.adminCard}>
       <Card.Header className={styles.cardHeader}>
-        <h5>Notification Settings</h5>
+        <h5 className={styles.cardTitle}>Notification Settings</h5>
       </Card.Header>
-      <Card.Body>
-        <ListGroup variant="flush">
-          <ListGroup.Item className="d-flex justify-content-between align-items-center">
-            <span>Order Completed</span>
+      <Card.Body className={styles.cardBody}>
+        <ListGroup className={styles.listGroup}>
+          <ListGroup.Item className={styles.listItem}>
+            <span className={styles.itemLabel}>Order Completed</span>
             <Form.Check
               type="switch"
               checked={settings.orderCompleted}
               onChange={() => handleToggle('orderCompleted')}
+              className={styles.switchInput}
             />
           </ListGroup.Item>
-          <ListGroup.Item className="d-flex justify-content-between align-items-center">
-            <span>Order Failed</span>
+          <ListGroup.Item className={styles.listItem}>
+            <span className={styles.itemLabel}>Order Failed</span>
             <Form.Check
               type="switch"
               checked={settings.orderFailed}
               onChange={() => handleToggle('orderFailed')}
+              className={styles.switchInput}
             />
           </ListGroup.Item>
-          <ListGroup.Item className="d-flex justify-content-between align-items-center">
-            <span>System Alerts</span>
+          <ListGroup.Item className={styles.listItem}>
+            <span className={styles.itemLabel}>System Alerts</span>
             <Form.Check
               type="switch"
               checked={settings.systemAlerts}
               onChange={() => handleToggle('systemAlerts')}
+              className={styles.switchInput}
             />
           </ListGroup.Item>
         </ListGroup>
-        <Button onClick={handleSave} className="mt-3">
-          Save Settings
-        </Button>
+        <div className={styles.buttonWrapper}>
+          <Button onClick={handleSave} className={styles.saveButton}>
+            Save Settings
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );

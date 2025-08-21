@@ -1,10 +1,13 @@
-
 import React, { useState } from 'react';
 import { Card, Form, Button, Table } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import styles from '../../styles/Admin.module.css';
+import styles from './PricingForm.module.css';
 import useAdminData from '../../hooks/useAdminData';
 
+/**
+ * Pricing Form for editing and previewing package pricing
+ * API: GET /admin/pricing, PUT /admin/pricing/:id
+ */
 const PricingForm = () => {
   const { pricing, updatePricingLocal } = useAdminData();
   const [editingId, setEditingId] = useState(null);
@@ -20,19 +23,8 @@ const PricingForm = () => {
       alert('Please enter a valid price');
       return;
     }
-    
-    // TODO: Backend Integration - Replace with API call
-    // This currently only updates local state
-    // In future, should make PUT request to save to database
-    // Example:
-    // try {
-    //   await axios.put('/api/pricing', { id, price: Number(tempPrice) });
-    //   updatePricingLocal(id, Number(tempPrice)); // Update local state after successful API call
-    // } catch (err) {
-    //   console.error('Failed to update pricing:', err);
-    //   alert('Failed to save changes');
-    // }
-    
+
+    // TODO: Backend Integration
     updatePricingLocal(id, Number(tempPrice));
     setEditingId(null);
     setTempPrice('');
@@ -40,67 +32,68 @@ const PricingForm = () => {
 
   return (
     <motion.div
+      className={styles.pricingFormWrapper}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <Card className={`${styles.adminCard} mb-4`}>
+      {/* Pricing Editor */}
+      <Card className={`${styles.adminCard} ${styles.editorCard}`}>
         <Card.Header className={styles.cardHeader}>
-          <h5>Package Pricing Editor</h5>
+          <h5 className={styles.editorTitle}>Package Pricing Editor</h5>
         </Card.Header>
-        <Card.Body>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Package</th>
-                <th>Photos</th>
-                <th>Turnaround</th>
-                <th>Price ($)</th>
-                <th>Actions</th>
+        <Card.Body className={styles.cardBody}>
+          <Table responsive className={styles.pricingTable}>
+            <thead className={styles.tableHead}>
+              <tr className={styles.tableRowHead}>
+                <th className={styles.tableHeading}>Package</th>
+                <th className={styles.tableHeading}>Photos</th>
+                <th className={styles.tableHeading}>Turnaround</th>
+                <th className={styles.tableHeading}>Price ($)</th>
+                <th className={styles.tableHeading}>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={styles.tableBody}>
               {pricing.map((pkg) => (
-                <tr key={pkg.id}>
-                  <td>{pkg.name}</td>
-                  <td>{pkg.photos}</td>
-                  <td>{pkg.turnaround}</td>
-                  <td>
+                <tr key={pkg.id} className={styles.tableRow}>
+                  <td className={styles.tableCell}>{pkg.name}</td>
+                  <td className={styles.tableCell}>{pkg.photos}</td>
+                  <td className={styles.tableCell}>{pkg.turnaround}</td>
+                  <td className={styles.tableCell}>
                     {editingId === pkg.id ? (
                       <Form.Control
                         type="number"
                         value={tempPrice}
                         onChange={(e) => setTempPrice(e.target.value)}
                         size="sm"
-                        style={{ width: '80px' }}
+                        className={styles.priceInput}
                       />
                     ) : (
-                      <span>${pkg.price}</span>
+                      <span className={styles.priceText}>${pkg.price}</span>
                     )}
                   </td>
-                  <td>
+                  <td className={styles.tableCell}>
                     {editingId === pkg.id ? (
-                      <>
+                      <div className={styles.actionButtons}>
                         <Button
-                          variant="success"
                           size="sm"
+                          className={styles.saveButton}
                           onClick={() => handleSave(pkg.id)}
-                          className="me-2"
                         >
                           Save
                         </Button>
                         <Button
-                          variant="outline-secondary"
                           size="sm"
+                          className={styles.cancelButton}
                           onClick={() => setEditingId(null)}
                         >
                           Cancel
                         </Button>
-                      </>
+                      </div>
                     ) : (
                       <Button
-                        variant="outline-primary"
                         size="sm"
+                        className={styles.editButton}
                         onClick={() => handleEditClick(pkg.id, pkg.price)}
                       >
                         Edit
@@ -114,12 +107,12 @@ const PricingForm = () => {
         </Card.Body>
       </Card>
 
-      {/* Preview Card */}
-      <Card className={styles.adminCard}>
+      {/* Pricing Preview */}
+      <Card className={`${styles.adminCard} ${styles.previewCard}`}>
         <Card.Header className={styles.cardHeader}>
-          <h5>Pricing Preview</h5>
+          <h5 className={styles.previewTitle}>Pricing Preview</h5>
         </Card.Header>
-        <Card.Body>
+        <Card.Body className={styles.cardBody}>
           <div className={styles.pricingPreview}>
             {pricing.map((pkg) => (
               <motion.div 
@@ -128,11 +121,11 @@ const PricingForm = () => {
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <h6>{pkg.name}</h6>
-                <div className={styles.price}>${pkg.price}</div>
-                <div className={styles.details}>
-                  <span>{pkg.photos} photos</span>
-                  <span>{pkg.turnaround}</span>
+                <h6 className={styles.packageName}>{pkg.name}</h6>
+                <div className={styles.packagePrice}>${pkg.price}</div>
+                <div className={styles.packageDetails}>
+                  <span className={styles.packagePhotos}>{pkg.photos} photos</span>
+                  <span className={styles.packageTurnaround}>{pkg.turnaround}</span>
                 </div>
               </motion.div>
             ))}

@@ -1,0 +1,79 @@
+/* Download Center Styles */
+
+/* Card */
+.downloadCenterCard {
+  background: #000;
+  color: white;
+}
+
+.downloadCenterHeader {
+  background: #000;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.downloadCenterBody {
+  background: #000;
+}
+
+.downloadCenterAlert {
+  color: #fff;
+  background-color: #b91c1c;
+  border: 1px solid #ef4444;
+}
+
+/* Table Wrapper */
+.downloadCenterTableWrapper {
+  background-color: #000;
+  border: 1px solid rgb(241, 241, 241);
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1;
+}
+
+.downloadCenterTable {
+  margin: 0;
+  color: white;
+}
+
+.downloadCenterTableHeader {
+  background-color: black;
+}
+
+.downloadCenterTableBody {
+  background-color: black;
+}
+
+.downloadCenterRow {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Table Columns */
+.tableColVideo,
+.tableColOrder,
+.tableColDate,
+.tableColAction {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Table Cells */
+.tableCellVideo,
+.tableCellOrder,
+.tableCellDate,
+.tableCellAction {
+  background-color: black !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Button & Spinner */
+.downloadButton {
+  color: white !important;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  border: none !important;
+}
+
+.downloadSpinner {
+  margin-right: 6px;
+}

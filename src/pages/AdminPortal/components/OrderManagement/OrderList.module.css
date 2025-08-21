@@ -1,0 +1,88 @@
+                                        /* ordermanagement*/
+/* Card */
+.adminCard {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+/* .adminCardHeader {} */
+/* .adminCardBody {} */
+
+/* Header content */
+/* .headerContent {} */
+/* .headerTitle {} */
+/* .headerSubtitle {} */
+
+/* Loading */
+/* .loadingContainer {} */
+/* .loadingSpinner {} */
+
+/* Table */
+/* .orderTable {} */
+.tableHead {
+  border: 1px solid #a855f7;
+}
+.tableHeaderCell {
+  background-color: black !important;
+  color: white !important;
+  
+}
+/* .tableBody {} */
+/* .tableRow {} */
+.tableCell {
+  background-color: black !important;
+  color: white !important;
+    border-bottom: 1px solid #a855f7;
+
+}
+
+/* Status */
+/* .statusBadge {} */
+/* .status_pending {} */
+/* .status_processing {} */
+/* .status_completed {} */
+/* .status_failed {} */
+/* .statusDropdown {} */
+.statusDropdownToggle {
+    background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%) !important;
+    border: none;
+}
+/* .statusDropdownMenu {} */
+/* .statusDropdownItem {} */
+/* .statusOption {} */
+/* .statusSpinner {} */
+
+/* Video */
+/* .videoBadge {} */
+/* .videoUploaded {} */
+/* .videoPending {} */
+
+/* Actions */
+.actionCell {
+  background-color: black !important;
+  border-bottom: 1px solid #a855f7;
+  
+}
+.uploadButton {  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%) !important;
+  border: none;
+}
+/* .uploadNew {} */
+/* .uploadReplace {} */
+
+/* Modal */
+/* .uploadModal {}
+.modalHeader {}
+.modalTitle {}
+.modalBody {}
+.modalFooter {}
+.uploadForm {}
+.uploadFormGroup {}
+.uploadLabel {}
+.uploadInput {}
+.uploadHint {}
+.uploadProgressContainer {}
+.uploadProgressHeader {}
+.uploadProgressBar {}
+.cancelButton {}
+.confirmButton {}
+.uploadSpinner {} */

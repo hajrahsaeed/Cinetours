@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, ProgressBar, Spinner } from 'react-bootstrap';
-import styles from '../styles/Portal.module.css';
+import styles from './OrderStatus.module.css';
 
 const OrderStatus = ({ orders, loading }) => {
   const statusSteps = [

@@ -1,0 +1,78 @@
+/* Card container */
+.reorderCard {
+  background-color: black;
+  color: white;
+}
+
+/* Header */
+.reorderHeader {
+  background-color: black;
+  color: white;
+  border-bottom: 1px solid #a855f7;
+}
+
+/* Body */
+.reorderBody {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive Table Container */
+.responsiveTableContainer {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table */
+.reorderTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Header */
+.tableHeaderRow {
+  border: 1px solid #a855f7;
+}
+.tableHeaderCell {
+  background-color: black !important;
+  color: white !important;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+/* Table Body & Rows */
+.tableBody {
+  background-color: black;
+}
+.tableRow {
+  border-bottom: 1px solid #a855f7;
+}
+.tableCell {
+  background-color: black !important;
+  color: white !important;
+  border-bottom: 1px solid #a855f7;
+  padding: 0.75rem;
+}
+
+/* Badge */
+.packageBadge {
+  background-color: transparent;
+  color: #1fb454;
+  border: 1px solid #1fb454;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Reorder Button */
+.reorderButton {
+  color: white;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+.reorderButton:hover {
+  background-image: linear-gradient(135deg, #15803d 0, #0f5e2a 100%);
+}

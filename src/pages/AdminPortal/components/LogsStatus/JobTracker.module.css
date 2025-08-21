@@ -1,0 +1,65 @@
+                                      /* logs and status*/
+
+/* Card wrapper */
+.jobTrackerCard {
+  background-color: black !important;
+  color: white !important;
+  border: 1px solid ;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+
+}
+
+/* Card header */
+.jobTrackerHeader {
+  background-color: black !important;
+  color: white !important;
+  border-bottom: 1px solid ;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+}
+.jobTrackerTitle {}
+
+/* Card body */
+.jobTrackerBody {}
+
+/* List wrapper */
+.jobTrackerList {background-color: black !important;
+  color: white !important;
+  border: 3px solid ;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */}
+
+/* Each log item */
+.jobTrackerListItem {
+  background-color: black !important;
+  color: white !important;
+  border: none;
+}
+
+/* Log item container */
+.logItemWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left side wrapper */
+.logMessageWrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Status badge */
+.logBadge {}
+
+/* Status variants */
+.processing {}
+.success {}
+.error {}
+
+/* Log message */
+.logMessage {}
+
+/* Timestamp */
+.logTimestamp {}

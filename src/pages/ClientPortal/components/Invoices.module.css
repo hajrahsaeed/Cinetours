@@ -1,0 +1,93 @@
+/* ============================= */
+/* Invoices Component Styles     */
+/* ============================= */
+
+/* Card container */
+.invoiceCard {
+  background-color: black;
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1;
+}
+
+/* Header */
+.invoiceHeader {
+  background-color: black !important;
+  color: white !important;
+  border-bottom: 1px solid #1fb454;
+}
+
+/* Body */
+.invoiceBody {
+  background-color: black;
+  color: white;
+}
+
+/* Table wrapper */
+.invoiceTableWrapper {
+  overflow-x: auto;
+}
+
+/* Table */
+.invoiceTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table head */
+.invoiceTableHead {}
+
+/* Table heading cells */
+.invoiceTableHeading {
+  background-color: black !important;
+  color: white !important;
+  border-top: 1px solid #a855f7;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+/* Table body */
+.invoiceTableBody {}
+
+/* Table row */
+.invoiceRow {
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Table cell */
+.invoiceCell {
+  background-color: black !important;
+  color: white !important;
+  border-top: 1px solid #a855f7;
+  padding: 0.75rem;
+}
+
+/* Invoice status badge */
+.invoiceStatus {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Status variations */
+.status_paid {
+  background-color: #1fb454 !important;
+  color: black !important;
+}
+
+.status_pending {
+  background-color: #facc15 !important;
+  color: black !important;
+}
+
+.status_failed {
+  background-color: #dc2626 !important;
+  color: white !important;
+}
+
+/* Download button */
+.invoiceDownloadBtn {
+  color: white !important;
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  border: none !important;
+}

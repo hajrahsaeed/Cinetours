@@ -1,0 +1,85 @@
+/* ============================= */
+/* Order Status Component Styles */
+/* ============================= */
+
+/* Card container */
+.orderCard {
+  background: #000;
+  color: white;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+  border-image-slice: 1;
+}
+
+/* Header */
+.orderHeader {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Body */
+.orderBody {
+  background-color: black;
+  color: white;
+}
+
+/* Loading state */
+.loadingContainer {
+  padding: 2rem;
+}
+.loadingSpinner {
+  color: #1fb454;
+}
+
+/* Individual order block */
+.orderItem {
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0.5rem;
+  background: rgba(255,255,255,0.03);
+}
+
+/* Top section: Order ID + Date */
+.orderTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.orderId {
+  font-weight: 600;
+  color: #1fb454;
+}
+.orderDate {
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+/* Progress bar styles */
+.orderProgress {
+  height: 1.5rem;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.progressStep {
+  font-size: 0.75rem;
+  color: black;
+  font-weight: 600;
+}
+
+/* Bottom section: Package + Photos */
+.orderDetails {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.orderPackage {
+  font-weight: 500;
+  color: white;
+}
+.orderPhotos {
+  color: #1fb454;
+  font-weight: 500;
+}

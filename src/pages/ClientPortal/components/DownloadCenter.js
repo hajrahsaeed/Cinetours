@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Table, Button, Spinner, Alert } from 'react-bootstrap';
-import styles from '../styles/Portal.module.css';
+import styles from './DownloadCenter.module.css';
 
 const DownloadCenter = ({ videos, onDownload }) => {
   const [downloadingId, setDownloadingId] = useState(null);

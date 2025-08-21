@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Table, Button, Badge } from 'react-bootstrap';
-import styles from '../styles/Portal.module.css';
+import styles from './Reorder.module.css';
 
 
 

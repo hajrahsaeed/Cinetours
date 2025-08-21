@@ -1,0 +1,43 @@
+                                     /* client management */
+
+
+/* Card wrapper */
+.adminCard {
+  background-color: black ;
+  color: white ;
+}
+
+/* Header */
+.cardHeader {}
+.headerContainer {}
+.headerTitle {
+  font-size: 30px;
+}
+.exportButton {}
+
+/* Card body */
+.cardBody {}
+
+/* Table */
+.clientTable {}
+.tableHead {}
+.tableRowHead {}
+.tableHeading {   
+    background-color: black !important ;
+    color: white !important;
+    border-top: 1px solid ;
+    border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+    border-image-slice: 1; /* ensures gradient covers border */
+}
+.tableBody {}
+.tableRow {}
+.tableCell {
+  background-color: black !important ;
+    color: white !important;
+    border-top: 1px solid ;
+    border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+    border-image-slice: 1; /* ensures gradient covers border */
+}
+
+/* Action buttons */
+.viewButton {}

@@ -1,0 +1,147 @@
+/* Wrapper */
+.pricingFormWrapper {
+  background-color: #000; /* Black background */
+  color: #fff;           /* White text */
+  min-height: 100vh;     /* Full page height */
+  padding: 20px;
+}
+
+/* Editor Card */
+.editorCard {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid ;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+}
+.editorTitle {
+  color: #fff;
+}
+
+/* Preview Card */
+.previewCard {
+  background-color: #000;
+  color: #fff;
+  border: none;
+}
+.previewTitle {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+/* Shared Card Parts */
+.cardHeader {
+  background-color: black;
+  color: #fff;
+  border-bottom: 3px solid #fff;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+
+}
+.cardBody {
+  background-color: #000;
+  color: #fff;
+  
+}
+
+/* Table */
+.pricingTable {
+  background-color: #000 !;
+  color: #fff;
+}
+.tableHead {
+  background-color: #000 !;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+.tableRowHead {
+  background-color: #000 !important;
+  color: #fff;
+}
+.tableHeading {
+      background-color: black !important;
+
+  color: #fff !important;
+
+}
+.tableBody {
+  background-color: #000;
+}
+.tableRow {
+  border-bottom: 1px solid !important;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%) !important;
+ border-image-slice: 1 !important; /* ensures gradient covers border */
+
+}
+.tableCell {
+  background-color: black !important;
+  color: #fff !important;
+}
+
+/* Inputs */
+.priceInput {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.priceText {
+  color: #fff;
+}
+
+/* Buttons */
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+.saveButton,
+.cancelButton,
+.editButton {
+background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  color: #fff;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.saveButton:hover,
+.cancelButton:hover,
+.editButton:hover {
+  background-color: #fff;
+}
+
+/* --- Pricing Preview Section --- */
+.pricingPreview {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 blocks per row */
+  gap: 15px; /* spacing between blocks */
+}
+
+/* Each Pricing Block */
+.pricingCard {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid;
+  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
+border-image-slice: 1; /* ensures gradient covers border */
+
+  padding: 15px;
+  text-align: center; /* center content inside */
+}
+.pricingCard:hover {
+  color: white;
+  background-color: #1fb454;
+  border: none;
+}
+
+/* Package Details inside block */
+.packageName,
+.packagePrice,
+.packageDetails,
+.packagePhotos,
+.packageTurnaround {
+  margin: 5px 0;
+  color: #fff;
+}

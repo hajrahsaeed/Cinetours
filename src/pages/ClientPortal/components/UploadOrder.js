@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Card, Spinner } from 'react-bootstrap';
-import styles from '../styles/Portal.module.css';
+import styles from './UploadOrder.module.css';
 import { useOrders } from '../../hooks/useOrders';
 
 /**

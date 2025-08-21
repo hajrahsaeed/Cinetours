@@ -17,7 +17,6 @@ const AdminPortal = () => {
         <Col md={3} className={styles.sidebar}>
           <div className={styles.adminHeader}>
             <h2>Admin Portal</h2>
-            <p className={styles.adminRole}>Administrator</p>
           </div>
           
           <Nav variant="pills" className="flex-column">
