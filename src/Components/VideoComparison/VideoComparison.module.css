@@ -1,44 +1,99 @@
 /* VideoComparison.module.css */
 
-/* Base Styles */
+/* Section */
 .sectionWrapper {
-  background-color: black;
   position: relative;
   overflow: hidden;
   width: 100%;
-  border: 3px solid transparent; /* transparent base */
-  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
-  border-image-slice: 1; /* makes gradient cover full border */
+  background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
 }
 
-/* Header Section */
-.headerDesign {
+/* Animated background container */
+.bgAnimation {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 2rem 1rem;
-  border-radius: 2px;
-  
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
+/* Background shapes */
+.bgShape {
+  position: absolute;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.bgShape.circle {
+  border-radius: 50%;
+  background: rgba(0, 122, 204, 0.2);
+}
+
+.bgShape.square {
+  background: rgba(70, 130, 180, 0.2);
+}
+
+.bgShape.triangle {
+  width: 0;
+  height: 0;
+  background: transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 26px solid rgba(30, 144, 255, 0.2);
+}
+
+/* Floating circles for GSAP */
+.bgCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(135, 206, 250, 0.4);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Content on top */
+.headerDesign,
+.comparisonContainer,
+.indicators {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
 .title {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   font-weight: 700;
-background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
+  color: #007acc;
+  letter-spacing: -0.5px;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animatedTextContainer {
   display: inline-block;
-  padding: 0.1em 0;
-  text-shadow: none;  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+  will-change: transform, opacity;
 }
 
 .description {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.9);
+  font-size: 1.1rem;
+  color: #444;
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* Comparison Container */
+/* Comparison */
 .comparisonContainer {
   width: 100%;
   padding: 0 15px;
@@ -46,174 +101,172 @@ background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
 }
 
 .comparisonFrame {
-  background: transparent;
-  border: 3px solid transparent; /* set transparent so gradient shows */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
-  border-image-slice: 1; /* ensures gradient covers border */
-  overflow: hidden;
   margin: 0 auto;
   max-width: 1200px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .mediaWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   position: relative;
 }
 
-/* Media Grid */
+/* Media grid */
 .mediaGrid {
   display: flex;
+  flex-direction: row;
+  gap: 20px;
   width: 100%;
+}
+
+.mediaColumn {
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
 }
 
 .mediaFrame {
-  position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 400px;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .mediaContent {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* Navigation Arrows */
-.navArrow {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: white;
-  border: none;
-  color: linear-gradient(135deg, var(--brand1), var(--brand2));
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  z-index: 10;
-  top: 50%;
-  transform: translateY(-50%);
+.mediaContent:hover {
+  transform: scale(1.03);
 }
 
-.arrowLeft {
-  left: 10px;
-}
-
-.arrowRight {
-  right: 10px;
-}
-
-/* Labels */
-.labelRow {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 15px;
-background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
-  border-top: 1px solid #eee;
+/* Label container */
+.labelContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 12px;
 }
 
 .mediaLabel {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: linear-gradient(135deg, var(--brand1), var(--brand2));;
+  color: #007acc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
 }
+
+/* Nav Arrows */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  color: #007acc;
+}
+.navArrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #007acc;
+  color: white;
+  box-shadow: 0 6px 16px rgba(0, 122, 204, 0.3);
+}
+
+.arrowLeft { left: 15px; }
+.arrowRight { right: 15px; }
 
 /* Indicators */
 .indicators {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
   padding: 15px 0;
 }
 
 .indicator {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   border: none;
   background: #ddd;
-  padding: 0;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
-
 .indicator.active {
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background: #007acc;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(0, 122, 204, 0.4);
+}
+
+.indicator:hover {
   transform: scale(1.2);
+  background: #66b3ff;
 }
 
-/* Desktop Styles */
-@media (min-width: 768px) {
-  .headerDesign {
-    padding: 3rem 2rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .mediaFrame {
+    height: 250px;
   }
-
   .title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+    min-height: 90px;
   }
-
   .description {
-    font-size: 1.1rem;
-  }
-
-  .mediaGrid {
-    flex-direction: row;
-  }
-
-  .mediaFrame {
-    padding-bottom: 0;
-    height: 400px;
-    flex: 1;
-    width: 100px;
-  }
-
-  .navArrow {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-  }
-
-  .arrowLeft {
-    left: 20px;
-  }
-
-  .arrowRight {
-    right: 20px;
-  }
-
-  .labelRow {
-    padding: 15px 30px;
-  }
-
-  .mediaLabel {
     font-size: 1rem;
+    padding: 0 15px;
   }
-
-  .indicators {
-    padding: 20px 0;
+  .comparisonFrame {
+    padding: 16px;
   }
-
-  .indicator {
-    width: 12px;
-    height: 12px;
+  .navArrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .mediaLabel {
+    font-size: 0.9rem;
+    padding: 4px 12px;
   }
 }
 
-/* Large Desktop Styles */
-@media (min-width: 1200px) {
+@media (max-width: 576px) {
+  .mediaGrid {
+    flex-direction: column;
+    gap: 15px;
+  }
   .mediaFrame {
-    height: 500px;
+    height: 200px;
+  }
+  .title {
+    font-size: 1.6rem;
+    min-height: 80px;
+  }
+  .labelContainer {
+    margin-top: 8px;
   }
 }

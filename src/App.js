@@ -18,11 +18,11 @@ const HomePage = () => (
     <Hero
       title={
         <>
-          Turn Listing Photos Into Cinematic  <br /> Walkthrough Videos— for 1/3
+          Turn Listing Photos Into Cinematic Walkthrough Videos— for 1/3
           the Price
         </>
       }
-      subtitle="Get a stunning video in 24–48 hours. Affordable pricing, no filming required."
+      
     />
     <ClientLogos />
     <VideoComparison

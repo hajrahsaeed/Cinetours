@@ -1,11 +1,22 @@
 // src/components/Header/Header.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="container-fluid bg-black shadow-sm">
+    <header className={`container-fluid ${isScrolled ? 'bg-black' : 'bg-transparent'} shadow-sm fixed-top`}>
       <nav className="navbar navbar-expand-md navbar-light container py-2 py-md-3">
         {/* Hamburger (mobile only) */}
         <button
@@ -31,23 +42,23 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarContent">
             <ul className="navbar-nav gap-md-3 me-auto">
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-white" to="/">Home</Link>
+                <Link className={`nav-link fw-medium ${isScrolled ? 'text-white' : 'text-white'}`} to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-white" to="/portal">Client Portal</Link>
+                <Link className={`nav-link fw-medium ${isScrolled ? 'text-white' : 'text-white'}`} to="/portal">Client Portal</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-white" to="/pricing">Pricing</Link>
+                <Link className={`nav-link fw-medium ${isScrolled ? 'text-white' : 'text-white'}`} to="/pricing">Pricing</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link fw-medium text-white" to="/admin">Admin Panel</Link>
+                <Link className={`nav-link fw-medium ${isScrolled ? 'text-white' : 'text-white'}`} to="/admin">Admin Panel</Link>
               </li>
             </ul>
           </div>
 
           {/* Right-aligned buttons - unchanged */}
           <div className=" d-flex gap-1 ms-auto">
-            <button className="btn btn-outline-secondary btn-sm">Sign in</button>
+            <button className={`btn btn-sm ${isScrolled ? 'btn-outline-secondary' : 'btn-outline-light'}`}>Sign in</button>
             <button className="btn gradient-button btn-sm">Start</button>
           </div>
         </div>

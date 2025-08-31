@@ -5,6 +5,7 @@
 /* Card container */
 .orderCard {
   background: #000;
+    height: 100vh;
   color: white;
   border: 1px solid;
   border-image: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);

@@ -1,71 +1,173 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './Pricing.module.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import useAdminData from '../../pages/AdminPortal/hooks/useAdminData';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import buildingImage from '../../assets/images/building1.png'; // Import your image
+
+// Register GSAP plugins
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const Pricing = () => {
   const { getPublicPricing } = useAdminData();
   const pricingPlans = getPublicPricing();
+  const sectionRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    // Animation for section title
+    gsap.fromTo(`.${styles.sectionTitle}`, 
+      { y: 50, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: `.${styles.sectionTitle}`,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    // Animation for background image
+    gsap.fromTo(`.${styles.backgroundImage}`, 
+      { opacity: 0 },
+      { 
+        opacity: 1, 
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: `.${styles.pricingSection}`,
+          start: 'top bottom',
+          toggleActions: 'play none none reverse'
+        }
+      }
+    );
+
+    // Animation for cards
+    cardRefs.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(card, 
+          { y: 100, opacity: 0 },
+          { 
+            y: 0, 
+            opacity: 1, 
+            duration: 0.6, 
+            delay: index * 0.2,
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+
+        // Hover animation
+        card.addEventListener('mouseenter', () => {
+          gsap.to(card, { y: -10, duration: 0.3 });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, { y: 0, duration: 0.3 });
+        });
+      }
+    });
+  }, []);
+
+  // Add cards to refs array
+  const addToRefs = (el) => {
+    if (el && !cardRefs.current.includes(el)) {
+      cardRefs.current.push(el);
+    }
+  };
 
   return (
-    <section className={styles.pricingSection}>
+    <section className={styles.pricingSection} ref={sectionRef}>
+      {/* Background Image */}
+      <div 
+        className={styles.backgroundImage}
+        style={{ backgroundImage: `url(${buildingImage})` }}
+      ></div>
+      
       <Container>
         <Row className="justify-content-center mb-5">
           <Col xs={12} className="text-center">
-            <h2 className={styles.sectionTitle}>Package Options</h2>
+            <h2 className={styles.sectionTitle}>Start here and scale up</h2>
             <div className={styles.titleUnderline}></div>
-            <p className={styles.sectionSubtitle}>Explore our flexible package options, and value so you can choose the plan that best matches your goals and budget.</p>
+            <p className={styles.sectionSubtitle}>
+              Choose the plan that works best for your business needs
+            </p>
           </Col>
         </Row>
 
-        {/* Desktop Table */}
-        <div className={styles.pricingTable}>
-          <div className={styles.tableHeader}>
-            <div className={styles.headerCell}>Package</div>
-            <div className={styles.headerCell}>Photo Count</div>
-            <div className={styles.headerCell}>Turnaround</div>
-            <div className={styles.headerCell}>Price</div>
-          </div>
-
+        <Row className={styles.pricingCards}>
           {pricingPlans.map((plan, index) => (
-            <div 
+            <Col 
               key={index} 
-              className={`${styles.tableRow} ${plan.popular ? styles.popularRow : ''}`}
+              lg={2} 
+              md={4} 
+              sm={6}
+              className={styles.pricingCol}
+              ref={addToRefs}
             >
-              <div className={styles.tableCell}>
-                {plan.package}
-                {plan.popular && <span className={styles.popularBadge}>Most Popular</span>}
+              <div className={`${styles.pricingCard} ${plan.popular ? styles.popularCard : ''}`}>
+                {plan.popular && (
+                  <div className={styles.popularBadge}>Most Popular</div>
+                )}
+                
+                <div className={styles.cardHeader}>
+                  <h3 className={styles.planName}>{plan.package}</h3>
+                </div>
+                
+                <div className={styles.priceSection}>
+                  <div className={styles.price}>{plan.price}</div>
+                </div>
+                
+                <div className={styles.featuresList}>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Up to {plan.photocount} contacts
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Unlimited team members
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Payments
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Authentication
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    CRM
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Email marketing
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Help desk
+                  </div>
+                  <div className={styles.featureItem}>
+                    <span className={styles.checkIcon}>✓</span>
+                    Reporting
+                  </div>
+                </div>
+                
+                <button className={styles.ctaButton}>
+                  Get started
+                </button>
               </div>
-              <div className={styles.tableCell}>{plan.photocount}</div>
-              <div className={styles.tableCell}>{plan.turnaround}</div>
-              <div className={`${styles.tableCell} ${styles.priceCell}`}>
-                {plan.price}
-              </div>
-            </div>
+            </Col>
           ))}
-        </div>
-
-        {/* Mobile Cards */}
-        <div className={styles.mobileCards}>
-          {pricingPlans.map((plan, index) => (
-            <div 
-              key={index} 
-              className={`${styles.mobileCard} ${plan.popular ? styles.popularCard : ''}`}
-            >
-              {plan.popular && (
-                <div className={styles.mobilePopularBadge}>Most Popular</div>
-              )}
-              <h3 className={styles.mobilePackage}>{plan.package}</h3>
-              <div className={styles.mobileDetail}>
-                <span>Photos:</span> {plan.photocount}
-              </div>
-              <div className={styles.mobileDetail}>
-                <span>Turnaround:</span> {plan.turnaround}
-              </div>
-              <div className={styles.mobilePrice}>{plan.price}</div>
-            </div>
-          ))}
-        </div>
+        </Row>
       </Container>
     </section>
   );

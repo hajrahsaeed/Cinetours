@@ -6,7 +6,6 @@
   background-clip: text;
   color: transparent;
   font-size: 1.25rem;
-  color: white;
 }
 
 :root {
@@ -15,7 +14,7 @@
 }
 
 .gradient-button {
-background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
+  background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
   border: none;
   color: white;
   transition: all 0.3s ease;
@@ -44,7 +43,19 @@ background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
     border-bottom: 1px solid rgba(0,0,0,0.05);
     color: black !important;
   }
+  
+  /* Ensure text is visible on transparent background */
+  .bg-transparent .navbar-collapse {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px);
+  }
+  
+  .bg-transparent .nav-link {
+    color: white !important;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
 }
+
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -52,7 +63,7 @@ background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
 /* Desktop specific fixes */
 @media (min-width: 768px) {
   .gradient-text {
-    font-size: 0.5rem;
+    font-size: 1.5rem;
     margin-right: 2rem !important;
   }
 
@@ -68,5 +79,28 @@ background-image: linear-gradient(135deg, #1fb454 0, #15803d 100%);
     flex-basis: auto;
   }
   
+  /* Transparent header styles */
+  .bg-transparent .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.3s ease;
+  }
   
+  .bg-transparent .nav-link:hover {
+    color: white !important;
+  }
+}
+
+/* Fixed header positioning */
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  transition: background-color 0.3s ease;
+}
+
+/* Ensure content doesn't jump under fixed header */
+body {
+  padding-top: 76px; /* Height of your header */
 }
