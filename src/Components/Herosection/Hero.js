@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import cloudImage from '../../assets/images/clouds.png';
 import houseImage from '../../assets/images/house.png';
 
-// GSAP plugins are now registered in App.js
+// GSAP plugins are now registered in gsapConfig.js
 
 const Hero = ({ title, subtitle }) => {
   const buttonVariants = {

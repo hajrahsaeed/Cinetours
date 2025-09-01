@@ -12,16 +12,10 @@ import Testimonials from "./Components/Testimonials/Testimonials.js";
 import Footer from "./Components/Footer/Footer.js";
 import ClientPortal from "./pages/ClientPortal/ClientPortal.js";
 import AdminPanel from "./pages/AdminPortal/AdminPortal";
-
-// In your main component (App.js or index.js)
 import { useEffect } from 'react';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
-// Register the plugins
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
+// Import from central config instead of registering here
+import "./utils/gsapConfig";
 
 // Create a separate HomePage component for cleaner routing
 const HomePage = () => (
