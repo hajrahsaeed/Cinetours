@@ -12,6 +12,16 @@ import Footer from "./Components/Footer/Footer.js";
 import ClientPortal from "./pages/ClientPortal/ClientPortal.js";
 import AdminPanel from "./pages/AdminPortal/AdminPortal";
 
+// In your main component (App.js or index.js)
+import { useEffect } from 'react';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
+// Register the plugins
+gsap.registerPlugin(ScrollTrigger, SplitText);
+
+
 // Create a separate HomePage component for cleaner routing
 const HomePage = () => (
   <>
@@ -48,6 +58,14 @@ const HomePage = () => (
 );
 
 function App() {
+
+  useEffect(() => {
+    // Wait for fonts to load before any text animations
+    document.fonts.ready.then(() => {
+      console.log("Fonts loaded, safe to use SplitText");
+    });
+  }, []);
+
   return (
     <Router>
       <div className="App">

@@ -85,7 +85,7 @@ const VideoComparison = ({
   useEffect(() => {
     // Create elegant animated background
     const createShapes = () => {
-      const shapesContainer = containerRef.current.querySelector(`.${styles.bgAnimation}`);
+      const shapesContainer = containerRef.current.querySelector(`.${styles.bgAnimation__HgyZ}`);
       const shapes = [];
       const shapeTypes = ['circle', 'square', 'triangle'];
       
