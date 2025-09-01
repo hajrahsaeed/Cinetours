@@ -1,4 +1,3 @@
-// File: ClientLogos_GSAP_Animated.jsx
 import { useEffect } from 'react';
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
@@ -18,7 +17,7 @@ import willis from '../../assets/ClientLogos/willis.png';
 // Add your building PNG here
 import buildingSrc from '../../assets/images/building.png';
 
-gsap.registerPlugin(ScrollTrigger);
+// GSAP plugins are now registered in App.js, so we don't need to register here again
 
 const ClientLogos = () => {
   const logos = [
@@ -107,16 +106,20 @@ const ClientLogos = () => {
 
     // Scroll-triggered reveal for decorative rings
     const ctx = gsap.context(() => {
-      gsap.to(`.${styles.ring}`, {
-        yPercent: -12,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: wrapper,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.5,
-        },
-      });
+      // Add null check for the ring element
+      const ringElement = document.querySelector(`.${styles.ring}`);
+      if (ringElement) {
+        gsap.to(ringElement, {
+          yPercent: -12,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.5,
+          },
+        });
+      }
     }, wrapper);
 
     // TITLE: animation from right side

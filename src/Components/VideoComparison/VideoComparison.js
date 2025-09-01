@@ -1,10 +1,11 @@
+// File: VideoComparison.js
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./VideoComparison.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-gsap.registerPlugin(ScrollTrigger);
+// GSAP plugins are now registered in App.js
 
 const VideoComparison = ({
   title,
@@ -35,23 +36,25 @@ const VideoComparison = ({
   // Animate floating background circles
   useEffect(() => {
     const circles = containerRef.current.querySelectorAll(`.${styles.bgCircle}`);
-    circles.forEach((circle, i) => {
-      gsap.set(circle, {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        width: 80 + Math.random() * 120,
-        height: 80 + Math.random() * 120,
-      });
+    if (circles.length > 0) {
+      circles.forEach((circle, i) => {
+        gsap.set(circle, {
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          width: 80 + Math.random() * 120,
+          height: 80 + Math.random() * 120,
+        });
 
-      gsap.to(circle, {
-        x: "+=" + (Math.random() * 200 - 100),
-        y: "+=" + (Math.random() * 200 - 100),
-        repeat: -1,
-        yoyo: true,
-        duration: 6 + Math.random() * 4,
-        ease: "sine.inOut",
+        gsap.to(circle, {
+          x: "+=" + (Math.random() * 200 - 100),
+          y: "+=" + (Math.random() * 200 - 100),
+          repeat: -1,
+          yoyo: true,
+          duration: 6 + Math.random() * 4,
+          ease: "sine.inOut",
+        });
       });
-    });
+    }
   }, []);
 
   // Auto-advance
@@ -85,7 +88,9 @@ const VideoComparison = ({
   useEffect(() => {
     // Create elegant animated background
     const createShapes = () => {
-      const shapesContainer = containerRef.current.querySelector(`.${styles.bgAnimation__HgyZ}`);
+      const shapesContainer = containerRef.current.querySelector(`.${styles.bgAnimation}`);
+      if (!shapesContainer) return;
+      
       const shapes = [];
       const shapeTypes = ['circle', 'square', 'triangle'];
       
@@ -144,47 +149,52 @@ const VideoComparison = ({
       titleElement.appendChild(textContainer);
       
       // Set initial state for words (hidden)
-      gsap.set(`.${styles.word}`, {
-        opacity: 0,
-        y: 80
-      });
-      
-      // Create the animation timeline
-      animationRef.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 70%",
-          end: "top 5%",
-          toggleActions: "play reverse play reverse",
-        }
-      });
-      
-      // Animate words in when scrolling down to the section
-      animationRef.current.to(`.${styles.word}`, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.06,
-        ease: "power2.out"
-      });
+      const wordElements = titleElement.querySelectorAll(`.${styles.word}`);
+      if (wordElements.length > 0) {
+        gsap.set(wordElements, {
+          opacity: 0,
+          y: 80
+        });
+        
+        // Create the animation timeline
+        animationRef.current = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%",
+            end: "top 5%",
+            toggleActions: "play reverse play reverse",
+          }
+        });
+        
+        // Animate words in when scrolling down to the section
+        animationRef.current.to(wordElements, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.06,
+          ease: "power2.out"
+        });
+      }
     }
 
     // Frame animation
-    gsap.fromTo(
-      frameRef.current,
-      { scale: 0.95, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 75%",
-        },
-      }
-    );
+    if (frameRef.current) {
+      gsap.fromTo(
+        frameRef.current,
+        { scale: 0.95, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+          },
+        }
+      );
+    }
     
     // Clean up function
     return () => {
@@ -211,7 +221,7 @@ const VideoComparison = ({
         <Col xs={12} className="px-0">
           <div className={`${styles.headerDesign} text-center`}>
             {/* Animated title */}
-            <h2 className={`${styles.title} mb-2 mb-md-3`} ref={titleRef}></h2>
+            <h2 className={`${styles.title} mb-2 mb-md-3`} ref={titleRef}>{title}</h2>
             {description && (
               <p className={`${styles.description} mb-0`}>{description}</p>
             )}

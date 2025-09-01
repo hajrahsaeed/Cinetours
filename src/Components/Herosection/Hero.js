@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import cloudImage from '../../assets/images/clouds.png';
 import houseImage from '../../assets/images/house.png';
 
-gsap.registerPlugin(ScrollTrigger);
+// GSAP plugins are now registered in App.js
 
 const Hero = ({ title, subtitle }) => {
   const buttonVariants = {
@@ -30,6 +30,10 @@ const Hero = ({ title, subtitle }) => {
       const clouds = cloudsRef.current;
       const house = houseRef.current;
       const text = textRef.current;
+      
+      // Check if elements exist before animating
+      if (!clouds || !house || !text) return;
+      
       // scope the button nodes to the hero to avoid global selection collision
       const buttons = gsap.utils.toArray('.hero-button', hero);
 
