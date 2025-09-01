@@ -285,3 +285,23 @@
 }
 }
 
+@media (max-width: 768px) {
+  .primaryButton, 
+  .secondaryButton,
+  .tertiaryButton {
+    padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;/* Smaller font size */
+    Text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6); /* Text shadow */
+    width: 40%;  
+  }
+  
+  /* Optional: Make buttons even smaller on very small screens */
+  @media (max-width: 360px) {
+    .primaryButton, 
+    .secondaryButton,
+    .tertiaryButton {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+    }
+  }
+}

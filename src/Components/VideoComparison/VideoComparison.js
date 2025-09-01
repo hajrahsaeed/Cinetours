@@ -240,7 +240,7 @@ const VideoComparison = ({
                 <button
                   className={`${styles.navArrow} ${styles.arrowLeft}`}
                   onClick={goToPrev}
-                >
+                >&#8249;
                   <i className="bi bi-chevron-left"></i>
                 </button>
 
@@ -291,7 +291,7 @@ const VideoComparison = ({
                 <button
                   className={`${styles.navArrow} ${styles.arrowRight}`}
                   onClick={goToNext}
-                >
+                >&#8250;
                   <i className="bi bi-chevron-right"></i>
                 </button>
               </div>
