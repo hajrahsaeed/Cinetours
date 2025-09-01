@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./VideoComparison.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 
-// GSAP plugins are now registered in gsapConfig.js
+// GSAP plugins are now registered in App.js
 
 const VideoComparison = ({
   title,
@@ -35,27 +35,25 @@ const VideoComparison = ({
 
   // Animate floating background circles
   useEffect(() => {
-    if (containerRef.current) {
-      const circles = containerRef.current.querySelectorAll(`.${styles.bgCircle}`);
-      if (circles.length > 0) {
-        circles.forEach((circle, i) => {
-          gsap.set(circle, {
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            width: 80 + Math.random() * 120,
-            height: 80 + Math.random() * 120,
-          });
-
-          gsap.to(circle, {
-            x: "+=" + (Math.random() * 200 - 100),
-            y: "+=" + (Math.random() * 200 - 100),
-            repeat: -1,
-            yoyo: true,
-            duration: 6 + Math.random() * 4,
-            ease: "sine.inOut",
-          });
+    const circles = containerRef.current.querySelectorAll(`.${styles.bgCircle}`);
+    if (circles.length > 0) {
+      circles.forEach((circle, i) => {
+        gsap.set(circle, {
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          width: 80 + Math.random() * 120,
+          height: 80 + Math.random() * 120,
         });
-      }
+
+        gsap.to(circle, {
+          x: "+=" + (Math.random() * 200 - 100),
+          y: "+=" + (Math.random() * 200 - 100),
+          repeat: -1,
+          yoyo: true,
+          duration: 6 + Math.random() * 4,
+          ease: "sine.inOut",
+        });
+      });
     }
   }, []);
 
@@ -90,9 +88,6 @@ const VideoComparison = ({
   useEffect(() => {
     // Create elegant animated background
     const createShapes = () => {
-      if (!containerRef.current) return;
-      
-      // FIXED: Remove the invalid '+' from the selector
       const shapesContainer = containerRef.current.querySelector(`.${styles.bgAnimation}`);
       if (!shapesContainer) return;
       
