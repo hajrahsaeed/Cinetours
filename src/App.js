@@ -27,7 +27,7 @@ const HomePage = () => (
     <Hero
       title={
         <>
-          Turn Listing Photos Into Cinematic Walkthrough Videos— for 1/3
+          Turn Listing Photos Into Cinematic Walkthrough Videos— for fraction of
           the Price
         </>
       }
