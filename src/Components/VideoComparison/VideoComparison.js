@@ -1,7 +1,8 @@
 // File: VideoComparison.js
 import React, { useState, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
+
+import {  ScrollTrigger } from '../../utils/gsapConfig';
 import styles from "./VideoComparison.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -88,7 +89,7 @@ const VideoComparison = ({
   useEffect(() => {
     // Create elegant animated background
     const createShapes = () => {
-      const shapesContainer = containerRef.current.querySelector(`.${styles.bgAnimation}`);
+      const shapesContainer = containerRef.current.querySelector('.VideoComparison_bgAnimation__HgyZ');
       if (!shapesContainer) return;
       
       const shapes = [];

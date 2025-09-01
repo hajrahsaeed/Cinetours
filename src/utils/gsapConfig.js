@@ -2,10 +2,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
-// Register plugins globally
+// Simple registration without version checks
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-// Optional: Configure GSAP
+// Suppress warnings
 gsap.config({
   nullTargetWarn: false
 });

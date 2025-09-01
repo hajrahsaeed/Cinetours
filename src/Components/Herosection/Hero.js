@@ -3,7 +3,8 @@ import styles from './Hero.module.css';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import {  ScrollTrigger } from '../../utils/gsapConfig';
 import cloudImage from '../../assets/images/clouds.png';
 import houseImage from '../../assets/images/house.png';
 

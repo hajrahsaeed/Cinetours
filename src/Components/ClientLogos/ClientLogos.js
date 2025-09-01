@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import React, { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '../../utils/gsapConfig';
 import styles from './ClientLogos.module.css';
 // NOTE: replace these import paths with your actual assets
 import bhhs from '../../assets/ClientLogos/bhhs.png';

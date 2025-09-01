@@ -2,8 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import styles from './Pricing.module.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import useAdminData from '../../pages/AdminPortal/hooks/useAdminData';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '../../utils/gsapConfig';
 import buildingImage from '../../assets/images/building1.png'; // Import your image
 
 // Register GSAP plugins

@@ -14,8 +14,12 @@ import ClientPortal from "./pages/ClientPortal/ClientPortal.js";
 import AdminPanel from "./pages/AdminPortal/AdminPortal";
 import { useEffect } from 'react';
 
-// Import from central config instead of registering here
-import "./utils/gsapConfig";
+// Register GSAP plugins ONLY HERE
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 // Create a separate HomePage component for cleaner routing
 const HomePage = () => (

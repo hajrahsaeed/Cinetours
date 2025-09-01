@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './HowItWorks.module.css';
-import { gsap } from 'gsap';
 import { Observer } from 'gsap/Observer';
 import { SplitText } from 'gsap/SplitText';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap, ScrollTrigger } from '../../utils/gsapConfig';
 import HIW1 from '../../assets/images/HIW1.jpg';
 import HIW2 from '../../assets/images/HIW2.jpg';
 import HIW3 from '../../assets/images/HIW3.jpg';  
