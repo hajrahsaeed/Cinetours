@@ -10,16 +10,10 @@ const Testimonials = () => {
   const titleRef = useRef(null);
   const cardsRef = useRef([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef(null);
 
   // Title animation - comes from right side
   useEffect(() => {
-    // Set initial state to visible
-    gsap.set(titleRef.current, {
-      opacity: 1,
-      x: 0
-    });
-    
-    // Then create the animation
     gsap.from(titleRef.current, {
       x: 200,
       opacity: 0,
