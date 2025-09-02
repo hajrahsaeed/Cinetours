@@ -56,7 +56,7 @@ const HowItWorks = () => {
     },
     {
       icon: <VideoIcon />,
-      title: 'AI editing creates your  videos',
+      title: <>AI editing creates <br /> your videos</>,
       description: 'Our AI tools stitch together cinematic walkthroughs.',
       background: HIW2
     },

@@ -35,11 +35,7 @@
   line-height: 1.2;
   
   /* Gradient text styling */
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  color:#003366;
   overflow: visible;
   position: relative;
   z-index: 5; /* Higher than header */

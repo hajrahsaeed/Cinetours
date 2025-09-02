@@ -1,308 +1,150 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './CostComparison.module.css';
-import { motion, AnimatePresence } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiClock, FiDollarSign, FiFilm, FiCheckCircle, FiXCircle } from 'react-icons/fi';
-import { FaVideo } from 'react-icons/fa';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CostComparison = () => {
+  const titleRef = useRef(null);
+
   const comparisonData = [
     {
       category: "Time",
       icon: <FiClock className={styles.icon}/>,
       items: [
-        { 
-          feature: "Turnaround", 
-          ai: "24-48 hours", 
-          traditional: "2-3 weeks",
-          advantage: "83% faster",
-          tooltip: "List properties while competitors are still scheduling shoots"
-        },
-        { 
-          feature: "Scheduling", 
-          ai: "Instant upload", 
-          traditional: "1-2 week wait",
-          advantage: "No delays",
-          tooltip: "No coordinating with photographers' availability"
-        }
+        { feature: "Turnaround", ai: "24-48 hours", traditional: "2-3 weeks", advantage: "83% faster" },
+        { feature: "Scheduling", ai: "Instant upload", traditional: "1-2 week wait", advantage: "No delays" }
       ]
     },
     {
       category: "Cost",
       icon: <FiDollarSign className={styles.icon}/>,
       items: [
-        { 
-          feature: "Production", 
-          ai: "$49-$149", 
-          traditional: "$1,500-$5,000",
-          advantage: "90% cheaper",
-          tooltip: "Typical savings per property"
-        },
-        { 
-          feature: "Recurring", 
-          ai: "None", 
-          traditional: "$200+/month",
-          advantage: "No equipment costs",
-          tooltip: "Traditional requires camera gear/software subscriptions"
-        }
+        { feature: "Production", ai: "$49-$149", traditional: "$1,500-$5,000", advantage: "90% cheaper" },
+        { feature: "Recurring", ai: "None", traditional: "$200+/month", advantage: "No equipment costs" }
       ]
     },
     {
       category: "Quality",
       icon: <FiFilm className={styles.icon}/>,
       items: [
-        { 
-          feature: "Resolution", 
-          ai: "4K HDR", 
-          traditional: "4K",
-          advantage: "Equal quality",
-          tooltip: "Both deliver professional-grade output"
-        },
-        { 
-          feature: "Revisions", 
-          ai: "Unlimited", 
-          traditional: "$150/revision",
-          advantage: "More flexibility",
-          tooltip: "Make changes without budget anxiety"
-        }
+        { feature: "Resolution", ai: "4K HDR", traditional: "4K", advantage: "Equal quality" },
+        { feature: "Revisions", ai: "Unlimited", traditional: "$150/revision", advantage: "More flexibility" }
       ]
     }
   ];
 
+  useEffect(() => {
+    if (titleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        { x: 200, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          }
+        }
+      );
+    }
+  }, []);
+
   return (
     <section className={styles.section}>
-      {/* Floating particles background */}
-  <div className={styles.particles}>
-    {Array.from({ length: 20 }).map((_, i) => (
-      <span key={i} className={styles.particle}></span>
-    ))}
-  </div>
-      <div className={styles.container}>
-        {/* Title Section */}
-        <motion.div 
-          className={styles.titleContainer}
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-        >
-          <div className={styles.titleWrapper}>
-            
-            <h2 className={styles.mainTitle}>
-              Comparison with Traditional Video Shooting
-            </h2>
-          </div>
-          <motion.p 
-            className={styles.subtitle}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
-            See how AI video generation saves time and money while delivering professional results
-          </motion.p>
-        </motion.div>
+      {/* Building Background */}
+      <img src="/images/building.png" alt="Building" className={styles.buildingImage} />
 
-        {/* Mobile Cards */}
-        <div className={styles.mobileCards}>
-          {comparisonData.map((category, catIndex) => (
-            <React.Fragment key={catIndex}>
-              <motion.h3 
-                className={styles.mobileCategory}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: catIndex * 0.1 }}
-              >
-                {category.icon} {category.category}
-              </motion.h3>
-              
-              {category.items.map((item, itemIndex) => (
-                <motion.div
-                  key={itemIndex}
-                  className={styles.mobileCard}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: catIndex * 0.2 + itemIndex * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className={styles.mobileFeature}>
-                    <span>{item.feature}</span>
-                    <div className={styles.mobileTooltip}>i</div>
-                    <div className={styles.mobileTooltipText}>{item.tooltip}</div>
-                  </div>
-                  <div className={styles.mobileComparison}>
-                    <div className={styles.mobileColumn}>
-                      <span className={styles.mobileLabel}>AI Service</span>
-                      <span className={styles.mobileValueAI}>{item.ai}</span>
-                    </div>
-                    <div className={styles.mobileColumn}>
-                      <span className={styles.mobileLabel}>Traditional</span>
-                      <span className={styles.mobileValueTraditional}>{item.traditional}</span>
-                    </div>
-                    <div className={styles.mobileColumn}>
-                      <span className={styles.mobileLabel}>Advantage</span>
-                      <span className={styles.mobileAdvantage}>{item.advantage}</span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </React.Fragment>
-          ))}
+      <div className={styles.container}>
+        {/* Title */}
+        <div className={styles.titleContainer} ref={titleRef}>
+          <h2 className={styles.mainTitle}>Comparison with Traditional Video Shooting</h2>
+          <p className={styles.subtitle}>
+            See how AI video generation saves time and money while delivering professional results
+          </p>
         </div>
 
         {/* Desktop Table */}
         <div className={styles.desktopTable}>
-          <motion.table 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className={styles.comparisonTable}
-          >
+          <table className={styles.comparisonTable}>
             <thead>
-              <motion.tr 
-                className={styles.tableHeader}
-                initial={{ y: -50 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <th className={styles.categoryHeader}>Category</th>
-                <th className={styles.featureHeader}>Feature</th>
-                <th className={styles.aiHeader}>
-                  <motion.span 
-                    className={styles.badge}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <FiCheckCircle/> AI Service
-                  </motion.span>
-                </th>
-                <th className={styles.traditionalHeader}>
-                  <motion.span 
-                    className={styles.badge}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <FiXCircle/> Traditional
-                  </motion.span>
-                </th>
-                <th className={styles.advantageHeader}>Your Advantage</th>
-              </motion.tr>
+              <tr className={styles.tableHeader}>
+                <th>Category</th>
+                <th>Feature</th>
+                <th><FiCheckCircle /> AI Service</th>
+                <th><FiXCircle /> Traditional</th>
+                <th>Advantage</th>
+              </tr>
             </thead>
-
             <tbody>
-              <AnimatePresence>
-                {comparisonData.map((category, catIndex) => (
-                  <React.Fragment key={catIndex}>
-                    {category.items.map((item, itemIndex) => (
-                      <motion.tr
-                        key={`${catIndex}-${itemIndex}`}
-                        className={styles.tableRow}
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ 
-                          delay: catIndex * 0.2 + itemIndex * 0.1,
-                          type: "spring",
-                          stiffness: 100
-                        }}
-                        whileHover={{
-                          scale: 1.02,
-                          boxShadow: "0 5px 15px rgba(33, 171, 181, 0.2)"
-                        }}
-                        viewport={{ once: true, margin: "-50px" }}
-                      >
-                        {itemIndex === 0 && (
-                          <motion.td 
-                            rowSpan={category.items.length}
-                            className={styles.categoryCell}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: catIndex * 0.2 }}
-                          >
-                            <div className={styles.categoryWrapper}>
-                              {category.icon}
-                              {category.category}
-                            </div>
-                          </motion.td>
-                        )}
-                        
-                        <td className={styles.featureCell}>
-                          <motion.div
-                            whileHover={{ x: 5 }}
-                            className={styles.featureWrapper}
-                            data-tooltip={item.tooltip}
-                          >
-                            {item.feature}
-                          </motion.div>
+              {comparisonData.map((category, catIndex) => (
+                <React.Fragment key={catIndex}>
+                  {category.items.map((item, itemIndex) => (
+                    <tr key={itemIndex} className={styles.tableRow}>
+                      {itemIndex === 0 && (
+                        <td rowSpan={category.items.length} className={styles.categoryCell}>
+                          {category.icon} {category.category}
                         </td>
-                        
-                        <td className={styles.aiCell}>
-                          <motion.div 
-                            className={styles.value}
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            {item.ai}
-                          </motion.div>
-                        </td>
-                        
-                        <td className={styles.traditionalCell}>
-                          <motion.div 
-                            className={styles.value}
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            {item.traditional}
-                          </motion.div>
-                        </td>
-                        
-                        <td className={styles.advantageCell}>
-                          <motion.span
-                            className={styles.advantagePill}
-                            initial={{ scale: 0.8 }}
-                            whileInView={{ scale: 1 }}
-                            whileHover={{ 
-                              scale: 1.1,
-                              backgroundColor: "#21ABB5",
-                              color: "white"
-                            }}
-                            transition={{ type: "spring" }}
-                          >
-                            {item.advantage}
-                          </motion.span>
-                        </td>
-                      </motion.tr>
-                    ))}
-                  </React.Fragment>
-                ))}
-              </AnimatePresence>
+                      )}
+                      <td className={styles.featureCell}>{item.feature}</td>
+                      <td className={styles.aiCell}>{item.ai}</td>
+                      <td className={styles.traditionalCell}>{item.traditional}</td>
+                      <td className={styles.advantageCell}>{item.advantage}</td>
+                    </tr>
+                  ))}
+                </React.Fragment>
+              ))}
             </tbody>
-          </motion.table>
+          </table>
         </div>
 
-        {/* Footer */}
-        <motion.div 
-          className={styles.footer}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <motion.div 
-            className={styles.conclusionCard}
-            whileHover={{ 
-              rotate: -1,
-              boxShadow: "0 10px 25px rgba(33, 171, 181, 0.3)"
-            }}
-          >
-            <h3>Total Estimated Savings</h3>
-            <motion.p
-              animate={{
-                scale: [1, 1.05, 1],
-                color: ["white"]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatType: "reverse"
-              }}
-              className={styles.savingsAmount}
-            >
-              $3,000+ per property
-            </motion.p>
-          </motion.div>
-        </motion.div>
+        {/* Mobile Cards */}
+        <div className={styles.mobileCards}>
+          {comparisonData.map((category, catIndex) => (
+            <div key={catIndex} className={styles.categoryCard}>
+              <div className={styles.categoryHeader}>
+                {category.icon}
+                <h3 className={styles.categoryTitle}>{category.category}</h3>
+              </div>
+              
+              {category.items.map((item, itemIndex) => (
+                <div key={itemIndex} className={styles.comparisonCard}>
+                  <h4 className={styles.featureTitle}>{item.feature}</h4>
+                  
+                  <div className={styles.comparisonRow}>
+                    <div className={styles.serviceType}>
+                      <FiCheckCircle className={styles.aiIcon} />
+                      <span>AI Service</span>
+                    </div>
+                    <div className={styles.serviceValue}>
+                      {item.ai}
+                    </div>
+                  </div>
+                  
+                  <div className={styles.comparisonRow}>
+                    <div className={styles.serviceType}>
+                      <FiXCircle className={styles.traditionalIcon} />
+                      <span>Traditional</span>
+                    </div>
+                    <div className={styles.serviceValue}>
+                      {item.traditional}
+                    </div>
+                  </div>
+                  
+                  <div className={styles.advantageBadge}>
+                    {item.advantage}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

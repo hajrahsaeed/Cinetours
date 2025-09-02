@@ -98,26 +98,26 @@ const Hero = ({ title, subtitle }) => {
               whileTap="tap"
               className={`${styles.primaryButton} hero-button`}
             >
-              <Link to="/portal">Order Now</Link>
+              <Link to="/portal">Get Started</Link>
             </motion.button>
 
-            <motion.button
+            {/* <motion.button
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               className={`${styles.secondaryButton} hero-button`}
             >
               <Link to="/pricing">View Pricing</Link>
-            </motion.button>
+            </motion.button> */}
 
-            <motion.button
+            {/* <motion.button
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
               className={`${styles.tertiaryButton} hero-button`}
             >
               <Link to="/portal">Upload Photos</Link>
-            </motion.button>
+            </motion.button> */}
           </div>
         </div>
 

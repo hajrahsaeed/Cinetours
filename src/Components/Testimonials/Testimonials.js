@@ -1,65 +1,211 @@
-import React from 'react';
-import styles from './Testimonials.module.css';
-import TestimonialCard from './TestimonialCard';
-import { Container, Row, Col } from 'react-bootstrap';
-import sarahImg from '../../assets/testimonials/sarah.jpg';
-import michaelImg from '../../assets/testimonials/michael.jpg';
-import emmaImg from '../../assets/testimonials/emma.jpg';
+import React, { useEffect, useRef, useState } from "react";
+import TestimonialCard from "./TestimonialCard";
+import styles from "./Testimonials.module.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials = () => {
+  const titleRef = useRef(null);
+  const cardsRef = useRef([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Title animation - comes from right side
+  useEffect(() => {
+    // Set initial state to visible
+    gsap.set(titleRef.current, {
+      opacity: 1,
+      x: 0
+    });
+    
+    // Then create the animation
+    gsap.from(titleRef.current, {
+      x: 200,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []);
+
+  // Cards animation
+  useEffect(() => {
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.from(card, {
+          x: index % 2 === 0 ? -200 : 200,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+          },
+        });
+      }
+    });
+  }, []);
+
+  // Testimonials data
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      role: 'TOP PRODUCER | RE/MAX',
-      message: 'AutoReel transformed my business. My listings get 3x more views and my open house attendance doubled. The quality rivals professional videographers at a fraction of the cost.',
-      image: sarahImg,
-      rating: 5
+      name: "Sarah Johnson",
+      role: "TOP PRODUCER | RE/MAX",
+      message: "AutoReel transformed my business. My listings get 3x more views and my open house attendance doubled.",
+      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      rating: 5,
     },
     {
       id: 2,
-      name: 'Michael Chen',
-      role: 'DEVELOPER | LUXE PROPERTIES',
-      message: 'We use AutoReel for all our luxury developments. The cinematic quality helps us command premium prices - our last project sold out 3 weeks faster than projected.',
-      image: michaelImg,
-      rating: 5
+      name: "Michael Chen",
+      role: "DEVELOPER | LUXE PROPERTIES",
+      message: "The cinematic quality helps us command premium prices – our last project sold out 3 weeks faster.",
+      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      rating: 5,
     },
     {
       id: 3,
-      name: 'Emma Rodriguez',
-      role: 'BROKER OWNER | ELITE REALTY',
-      message: 'Game-changing technology. My agents save 10+ hours per listing while delivering superior marketing. Our brand recognition has never been stronger.',
-      image: emmaImg,
-      rating: 5
-    }
+      name: "Emma Rodriguez",
+      role: "BROKER OWNER | ELITE REALTY",
+      message: "My agents save 10+ hours per listing while delivering superior marketing.",
+      image: "https://randomuser.me/api/portraits/women/68.jpg",
+      rating: 5,
+    },
+    {
+      id: 4,
+      name: "David Miller",
+      role: "REAL ESTATE CONSULTANT",
+      message: "Impressed with the simplicity and speed. Clients love the modern look of our listings.",
+      image: "https://randomuser.me/api/portraits/men/41.jpg",
+      rating: 4,
+    },
+    {
+      id: 5,
+      name: "Sophia Patel",
+      role: "AGENT | DREAM HOMES",
+      message: "A must-have tool for any serious realtor. It gives me a competitive advantage.",
+      image: "https://randomuser.me/api/portraits/women/12.jpg",
+      rating: 5,
+    },
+    {
+      id: 6,
+      name: "James Anderson",
+      role: "PROPERTY INVESTOR",
+      message: "Presentation is everything. This tool takes marketing to the next level.",
+      image: "https://randomuser.me/api/portraits/men/25.jpg",
+      rating: 4,
+    },
+    {
+      id: 7,
+      name: "Olivia Brown",
+      role: "AGENT | PRIME ESTATES",
+      message: "I love how professional my listings look now. It's like having a personal videographer.",
+      image: "https://randomuser.me/api/portraits/women/33.jpg",
+      rating: 5,
+    },
+    {
+      id: 8,
+      name: "Daniel Wilson",
+      role: "AGENCY OWNER",
+      message: "Helped my agency grow faster by creating strong impressions on new clients.",
+      image: "https://randomuser.me/api/portraits/men/45.jpg",
+      rating: 5,
+    },
+    {
+      id: 9,
+      name: "Amelia Scott",
+      role: "BROKER | SUNRISE REALTY",
+      message: "It saves me hours every week. My clients always compliment the videos.",
+      image: "https://randomuser.me/api/portraits/women/25.jpg",
+      rating: 5,
+    },
+    {
+      id: 10,
+      name: "Robert White",
+      role: "LUXURY PROPERTY AGENT",
+      message: "The attention to detail is outstanding. Worth every penny!",
+      image: "https://randomuser.me/api/portraits/men/60.jpg",
+      rating: 5,
+    },
   ];
+
+  // Shuffle randomly
+  const shuffledTestimonials = [...testimonials].sort(() => Math.random() - 0.5);
+
+  // Slider navigation functions
+  const nextSlide = () => {
+    const newSlide = Math.min(currentSlide + 1, testimonials.length - 1);
+    setCurrentSlide(newSlide);
+  };
+
+  const prevSlide = () => {
+    const newSlide = Math.max(currentSlide - 1, 0);
+    setCurrentSlide(newSlide);
+  };
 
   return (
     <section id="testimonials" className={styles.testimonialsSection}>
-      <div className={`${styles.backgroundAccent} ${styles.accent1}`}></div>
-      <div className={`${styles.backgroundAccent} ${styles.accent2}`}></div>
-            <div className={styles.gradientOverlay}></div>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <span className={styles.tagline}>Recommendation by Clients</span>
+          <h2 ref={titleRef} className={styles.sectionTitle}>
+            Real Clients, Real Stories
+          </h2>
+          <div className={styles.titleUnderline}></div>
+        </div>
 
-      <Container>
-        <Row className="justify-content-center">
-          <Col xs={12} className={styles.sectionHeaderContainer}>
-            <span className={styles.tagline}>Recommendation by Clients</span>
-            <h2 className={styles.sectionTitle}>Real CLients, Real Stories</h2>
-            <div className={styles.titleUnderline}></div>
-          </Col>
-        </Row>
-
-        <Row className="g-4 mt-4">
-          {testimonials.map((testimonial, index) => (
-            <Col key={testimonial.id} lg={4} className="d-flex">
-              <TestimonialCard 
-                testimonial={testimonial} 
-                index={index} 
-              />
-            </Col>
+        {/* Desktop grid view */}
+        <div className={styles.testimonialsGrid}>
+          {shuffledTestimonials.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              ref={(el) => (cardsRef.current[index] = el)}
+              className={styles.gridItem}
+            >
+              <TestimonialCard testimonial={testimonial} index={index} />
+            </div>
           ))}
-        </Row>
-      </Container>
+        </div>
+
+        {/* Mobile slider view */}
+        <div className={styles.mobileSlider}>
+          <div 
+            className={styles.sliderContainer}
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {shuffledTestimonials.map((testimonial, index) => (
+              <div key={testimonial.id} className={styles.slide}>
+                <TestimonialCard testimonial={testimonial} index={index} />
+              </div>
+            ))}
+          </div>
+          
+          {/* Navigation arrows */}
+          <button className={styles.sliderArrowLeft} onClick={prevSlide}>
+            &#8249;
+          </button>
+          <button className={styles.sliderArrowRight} onClick={nextSlide}>
+            &#8250;
+          </button>
+          
+          {/* Slider indicators */}
+          <div className={styles.sliderIndicators}>
+            {shuffledTestimonials.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.indicator} ${currentSlide === index ? styles.active : ''}`}
+                onClick={() => setCurrentSlide(index)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

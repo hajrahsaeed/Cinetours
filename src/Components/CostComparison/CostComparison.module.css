@@ -1,471 +1,240 @@
-/* CostComparison.module.css */
-
-/* Base Styles */
+/* Section */
 .section {
-  padding: 4rem 0;
+  position: relative;
+  padding: 5rem 0;
+  background: skyblue;
+  overflow: hidden;
+  color: #fff;
 }
 
+/* Building Image */
+.buildingImage {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 600px;
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Container */
 .container {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
-/* Title Styles */
+/* Title */
 .titleContainer {
   text-align: center;
   margin-bottom: 3rem;
 }
-
-.titleWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.titleIcon {
-  font-size: 2rem;
-  color: hsl(var(--primary));
-}
-
-/* Add this to your CSS file */
 .mainTitle {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  display: inline-block;
-  padding: 0.1em 0;
-  text-shadow: none;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #003366;
 }
-
 .subtitle {
   font-size: 1.1rem;
-  color: #6c757d;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* Mobile Cards */
-.mobileCards {
-  display: block;
-  margin-bottom: 2rem;
-}
-
-.mobileCategory {
-  font-size: 1.3rem;
-  color: white;
-  margin: 2rem 0 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.mobileCard {
-  background: black;
-  border-radius: 10px;
-  padding: 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-}
-
-.mobileCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.mobileFeature {
-  font-weight: 600;
-  margin-bottom: 1rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.mobileTooltip {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  cursor: help;
-}
-
-.mobileTooltipText {
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  background: #212529;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  width: 200px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 10;
-}
-
-.mobileTooltip:hover + .mobileTooltipText {
-  opacity: 1;
-}
-
-.mobileComparison {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.mobileColumn {
-  display: flex;
-  flex-direction: column;
-}
-
-.mobileLabel {
-  font-size: 0.8rem;
-  color: white;
-  margin-bottom: 0.3rem;
-}
-
-.mobileValueAI {
-  font-weight: 700;
-  color: white;
-}
-
-.mobileValueTraditional {
-  color: white;
-  position: relative;
-}
-
-
-
-.mobileAdvantage {
-  font-weight: 600;
-  color: green;
-  font-size: 0.9rem;
+  color: #002244;
+  margin-top: 0.5rem;
 }
 
 /* Desktop Table */
 .desktopTable {
-  display: none;
+  overflow-x: auto;
 }
 
-/* Table Styles */
 .comparisonTable {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 1rem;
-  min-width: 800px;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Header Row */
 .tableHeader {
-background: linear-gradient(135deg, #a855f7 0%, #1fb454 100%);
-
-  color: white;
+  background: rgba(0, 51, 102, 0.9);
+  color: #fff;
 }
-
 .tableHeader th {
-  padding: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.categoryHeader {
-  width: 15%;
-  text-align: left;
-  padding-left: 2rem !important;
-  border-radius: 12px 0 0 12px;
-}
-
-.featureHeader {
-  width: 25%;
-  text-align: left;
-}
-
-.aiHeader, .traditionalHeader, .advantageHeader {
-  width: 20%;
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 30px;
-  font-size: 0.95rem;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(5px);
-}
-
-.aiHeader .badge {
-  border: 1px solid rgba(255,255,255,0.4);
-}
-
-.traditionalHeader .badge {
-  background: rgba(0,0,0,0.2);
-}
-
-/* Table Body */
-.tableRow {
-  background: white;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.tableRow:hover {
-  transform: translateY(-3px);
-}
-
-td {
   padding: 1.2rem;
+  font-weight: 600;
   text-align: center;
-  position: relative;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Rows */
+.tableRow {
+  background: rgba(255, 255, 255, 0.35);
+  color: #000;
+  transition: 0.3s ease;
+}
+.tableRow:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* Cells */
 .categoryCell {
-  background: #000;
-  font-weight: 600;
-  color: #495057;
-  border-right: 1px dashed rgba(0,0,0,0.1);
-}
-
-.categoryWrapper {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 1rem;
-}
-
-.icon {
-  font-size: 1.3rem;
-  min-width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(33, 171, 181, 0.1);
-  border-radius: 50%;
-  color: #1fb454;
-}
-
-.featureCell {
-  background: #000;
-  font-weight: 500;
-  color: white;
-  text-align: left;
-}
-
-.featureWrapper {
-  position: relative;
-  cursor: help;
-}
-
-.featureWrapper:hover:after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #212529;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  white-space: nowrap;
-  z-index: 10;
-}
-
-.aiCell {
-  background: #000;
   font-weight: 700;
-  color: white;
-  border-left: 1px solid rgba(33, 171, 181, 0.2);
-  border-right: 1px solid rgba(33, 171, 181, 0.2);
+  text-align: left;
+  padding: 1.2rem;
+  color: #003366;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-.traditionalCell {
-  background: #000;
-  color: white;
+.featureCell {
+  text-align: left;
+  padding: 1rem;
   font-weight: 500;
-  border-right: 1px solid rgba(108, 117, 125, 0.2);
 }
-
-.value {
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+.aiCell {
+  font-weight: bold;
+  color: green;
 }
-
-.advantageCell {
-  background: #000;
-  font-weight: 600;
+.traditionalCell {
   color: red;
 }
-
-.advantagePill {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(33, 171, 181, 0.1);
-  color: green;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+.advantageCell {
+  font-weight: 600;
+  color: #003366;
 }
 
-/* Footer */
-.footer {
-  margin-top: 3rem;
-  text-align: center;
+/* Mobile Cards - Hidden by default */
+.mobileCards {
+  display: none;
 }
 
-.conclusionCard {
-  display: inline-block;
-  background: #1fb454;
-  padding: 1.5rem 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.savingsAmount {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: hsl(var(--primary));
-  margin: 0;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Responsive Breakpoints */
-@media (min-width: 992px) {
-  .mobileCards {
-    display: none;
-  }
-  
-  .desktopTable {
-    display: block;
-  }
-  
-  .mainTitle {
-    font-size: 2.5rem;
-  }
-  
-  .titleIcon {
-    font-size: 2.5rem;
-  }
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  .section {
-    padding: 3rem 0;
-  }
-  
   .mainTitle {
     font-size: 1.8rem;
   }
+  .buildingImage {
+    width: 350px;
+  }
   
-  .subtitle {
-    font-size: 1rem;
+  /* Hide desktop table on mobile */
+  .desktopTable {
+    display: none;
+  }
+  
+  /* Show mobile cards on mobile */
+  .mobileCards {
+    display: block;
+  }
+  
+  /* Category Card */
+  .categoryCard {
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    padding: 1.5rem;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .categoryHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .categoryTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #003366;
+    margin-left: 0.75rem;
+  }
+  
+  /* Comparison Card */
+  .comparisonCard {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+  
+  .featureTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #003366;
+    text-align: center;
+  }
+  
+  .comparisonRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+  }
+  
+  .serviceType {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+  
+  .aiIcon {
+    color: green;
+    margin-right: 0.5rem;
+  }
+  
+  .traditionalIcon {
+    color: red;
+    margin-right: 0.5rem;
+  }
+  
+  .serviceValue {
+    font-weight: 500;
+    text-align: right;
+  }
+  
+  .advantageBadge {
+    background: #003366;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
   }
 }
 
-
-
-.section {
-  position: relative;
-  padding: 4rem 0;
-background: 
-    radial-gradient(
-      circle 600px at 50% -20%,   /* circle centered at top */
-      rgba(109, 40, 217, 0.4),    /* #6d28d9 with 40% opacity */
-      rgba(168, 85, 247, 0.25),   /* #a855f7 with 25% opacity */
-      transparent 80%
-    ),
-    #000000; /* solid black base */
-  overflow: hidden;
-  color: white;
-}
-
-/* Particles wrapper */
-.particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-
-/* Each particle */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(168, 85, 247, 0.7); /* purple glow */
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.9);
-  animation: floatParticle linear infinite;
-}
-
-/* Random floating animation */
-@keyframes floatParticle {
-  from {
-    transform: translate(0, 0);
-    opacity: 0.8;
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
   }
-  to {
-    transform: translate(
-      calc(-50px + 100px * random()), 
-      calc(-50px + 100px * random())
-    );
-    opacity: 0.3;
+  
+  .categoryCard {
+    padding: 1rem;
+  }
+  
+  .comparisonCard {
+    padding: 1rem;
+  }
+  
+  .comparisonRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .serviceValue {
+    margin-top: 0.25rem;
+    text-align: left;
+    width: 100%;
+    padding-left: 1.75rem;
   }
 }
-
-/* Content */
-.container {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.heading {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  backdrop-filter: blur(5px);
-  transition: 0.3s ease;
-}
-
-.icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-
