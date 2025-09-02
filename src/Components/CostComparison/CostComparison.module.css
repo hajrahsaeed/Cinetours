@@ -76,18 +76,16 @@
   color: #000;
   transition: 0.3s ease;
 }
-.tableRow:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.55);
-}
+
 
 /* Cells */
 .categoryCell {
   font-weight: 700;
-  text-align: left;
+  text-align: center;
   padding: 1.2rem;
   color: #003366;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.7rem;
 }
 .featureCell {
   text-align: left;

@@ -216,7 +216,6 @@ background:linear-gradient(135deg,#a855f7,#1fb454);
 
   .textContent h1 {
     font-size: 2.2rem;
-    margin-bottom: 1rem;
   }
 
   .textContent p {
@@ -231,8 +230,10 @@ background:linear-gradient(135deg,#a855f7,#1fb454);
 
   .buttonGroup {
     flex-direction: column;
-    align-items: center;
-  }
+align-items: end;
+        padding-left: 110px; 
+
+      }
 
   .primaryButton,
   .secondaryButton,
