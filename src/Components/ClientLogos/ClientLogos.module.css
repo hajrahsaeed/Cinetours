@@ -6,7 +6,7 @@
 .section {
   position: relative;
   padding: 4rem 0 3rem 0;
-  background: linear-gradient(180deg, #87CEEB 0%, #B0E2FF 100%);
+background:white;
   overflow: hidden;
   color: #e6eef9;
 }
@@ -35,7 +35,11 @@
   line-height: 1.2;
   
   /* Gradient text styling */
-  color:#003366;
+  /* color:#003366; */
+  background: linear-gradient(135deg, #a855f7, #1fb454);
+background-clip: text;
+color: transparent;
+
   overflow: visible;
   position: relative;
   z-index: 5; /* Higher than header */
@@ -44,7 +48,7 @@
 
 .subtitle {
   margin-top: 0.6rem;
-  color: rgba(230,238,249,0.78);
+  color: black;
   font-size: 1rem;
   position: relative;
   z-index: 5;

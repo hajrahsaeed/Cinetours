@@ -1,6 +1,6 @@
 /* Footer Base Styling */
 .footer {
-  background-color: #545454;
+  background-color: black;
   color: #fff;
   padding: 3rem 0 2rem;
   font-size: 0.9rem;
@@ -10,7 +10,9 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+background: linear-gradient(135deg, #a855f7, #1fb454 );
+background-clip: text;
+color: transparent;
   display: block;
   margin-bottom: 0.5rem;
 }
